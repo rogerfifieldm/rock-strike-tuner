@@ -6,8 +6,8 @@
     <title>Rock Strike Guitars - Pro Chromatic Tuner</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --panel-color: #1e1e1e;
+            --bg-color: #0b0c10;
+            --panel-color: #1a1c23;
             --text-color: #ffffff;
             --accent-color: #aaaaaa;
             --accent-glow: rgba(255, 255, 255, 0.2);
@@ -16,8 +16,8 @@
 
         /* Skin Definitions */
         .skin-free {
-            --bg-color: #121212;
-            --panel-color: #1e1e1e;
+            --bg-color: #0b0c10;
+            --panel-color: #1a1c23;
             --text-color: #ffffff;
             --accent-color: #888888;
             --accent-glow: rgba(136, 136, 136, 0.2);
@@ -59,21 +59,48 @@
             transition: all 0.3s ease;
         }
 
-        .header {
-            text-align: center;
+        .app-container {
+            width: 100%;
+            max-width: 420px;
+            box-sizing: border-box;
+        }
+
+        /* Top Bar Styling */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
             margin-bottom: 20px;
         }
 
-        .header h1 {
+        .brand-title-group h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 20px;
             letter-spacing: 1px;
+            color: #e53935;
+            text-transform: uppercase;
         }
 
-        .header p {
-            margin: 5px 0 0 0;
-            font-size: 12px;
-            opacity: 0.7;
+        .brand-title-group p {
+            margin: 2px 0 0 0;
+            font-size: 11px;
+            opacity: 0.6;
+            letter-spacing: 0.5px;
+        }
+
+        .auth-btn {
+            background-color: #242731;
+            color: #ffffff;
+            border: 1px solid #3a3f50;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s;
         }
 
         .dashboard {
@@ -81,13 +108,14 @@
             max-width: 400px;
             background-color: var(--panel-color);
             border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,0.02);
         }
 
         .status-badge {
@@ -104,61 +132,70 @@
             max-width: 400px;
             background-color: var(--panel-color);
             border-radius: 16px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.7);
             display: flex;
             flex-direction: column;
             align-items: center;
             box-sizing: border-box;
             border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
         }
 
         .display-note {
             font-size: 72px;
             font-weight: bold;
-            margin: 10px 0;
-            height: 90px;
+            margin: 5px 0;
+            height: 85px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
+        .hz-display {
+            color: #888d99;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
         .meter-container {
             width: 100%;
-            height: 60px;
+            height: 40px;
             position: relative;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
         .meter-arc {
             width: 100%;
             height: 4px;
-            background: #333;
+            background: #222;
             position: absolute;
-            top: 30px;
+            top: 20px;
             border-radius: 2px;
         }
 
         .center-marker {
             width: 4px;
-            height: 20px;
-            background: var(--text-color);
+            height: 16px;
+            background: #e53935;
             position: absolute;
             left: 50%;
-            top: 22px;
+            top: 14px;
             transform: translateX(-50%);
             z-index: 2;
         }
 
         .target-indicator {
-            width: 16px;
-            height: 16px;
-            background-color: #555;
+            width: 12px;
+            height: 12px;
+            background-color: #444;
             border-radius: 50%;
             position: absolute;
             left: 50%;
-            top: -2px;
+            top: -12px;
             transform: translateX(-50%);
             transition: background-color 0.1s ease, box-shadow 0.1s ease;
         }
@@ -170,11 +207,11 @@
 
         .needle {
             width: 3px;
-            height: 35px;
+            height: 25px;
             background-color: var(--needle-color);
             position: absolute;
             left: 50%;
-            top: 15px;
+            top: 10px;
             transform-origin: bottom center;
             transform: translateX(-50%) rotate(0deg);
             transition: transform 0.1s ease-out;
@@ -182,10 +219,46 @@
         }
 
         .cents-display {
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 12px;
+            font-weight: bold;
+            color: #888d99;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             margin-top: 5px;
             height: 20px;
+        }
+
+        /* String Grid Styling */
+        .string-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            width: 100%;
+            max-width: 400px;
+            margin: 15px 0;
+            box-sizing: border-box;
+        }
+
+        .string-note {
+            background-color: #111318;
+            border: 1px solid #242731;
+            border-radius: 10px;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        .string-note label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .string-note span {
+            font-size: 9px;
+            color: #5d626e;
+            display: block;
+            margin-top: 2px;
         }
 
         .controls-grid {
@@ -193,7 +266,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         button, select {
@@ -201,7 +274,7 @@
             color: var(--text-color);
             border: 1px solid #444;
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 13px;
             font-weight: 600;
             cursor: pointer;
@@ -215,9 +288,9 @@
         }
 
         button.active {
-            background-color: var(--accent-color);
-            color: #000;
-            border-color: var(--accent-color);
+            background-color: #e53935;
+            color: #fff;
+            border-color: #e53935;
         }
 
         .skin-selector-wrapper {
@@ -225,65 +298,245 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
+            margin-top: 5px;
         }
 
         .skin-label {
             font-size: 11px;
             opacity: 0.6;
             padding-left: 2px;
+            color: #888d99;
+        }
+
+        /* Metronome Card Styling */
+        .metronome-card {
+            background-color: #111318;
+            border: 1px solid #242731;
+            border-radius: 16px;
+            padding: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 15px;
+            box-sizing: border-box;
+        }
+
+        .metro-label {
+            font-size: 10px;
+            color: #5d626e;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .metro-interface {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .tap-btn {
+            background-color: #e53935;
+            color: #ffffff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: auto;
+        }
+
+        .bpm-display-container {
+            text-align: center;
+        }
+
+        .bpm-value {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .bpm-unit {
+            font-size: 9px;
+            color: #5d626e;
+            display: block;
+            margin-top: 1px;
+        }
+
+        .pulse-light {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #1a1c23;
+            border: 1px solid #242731;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.1s;
+        }
+
+        .pulse-light.flash {
+            background-color: #e53935;
+            box-shadow: 0 0 12px #e53935;
         }
 
         .legal-footer {
-            margin-top: 30px;
+            margin-top: 25px;
             font-size: 11px;
             opacity: 0.5;
             text-align: center;
             letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .powered-by {
+            font-size: 10px;
+            color: #e53935;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: bold;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+
+        .modal-box {
+            background-color: #1a1c23;
+            border: 1px solid #2a2d37;
+            border-radius: 16px;
+            padding: 22px;
+            width: 85%;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .modal-box h3 {
+            margin: 0 0 10px 0;
+            color: #e53935;
+            font-size: 18px;
+        }
+
+        .modal-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            background-color: #111318;
+            border: 1px solid #242731;
+            color: white;
+            border-radius: 8px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .modal-box button {
+            background-color: #e53935;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
         }
     </style>
 </head>
 <body class="skin-free">
 
-    <div class="header">
-        <h1>ROCK STRIKE GUITARS</h1>
-        <p>Precision Toolkit Suite</p>
-    </div>
-
-    <div class="dashboard">
-        <span style="font-size: 13px; font-weight: 500;">User Account ID: Premium Access</span>
-        <span class="status-badge">Paid In Full (Lifetime)</span>
-    </div>
-
-    <div class="tuner-container">
-        <div class="target-indicator" id="targetIndicator"></div>
-        <div class="display-note" id="noteDisplay">--</div>
-        
-        <div class="meter-container">
-            <div class="meter-arc"></div>
-            <div class="center-marker"></div>
-            <div class="needle" id="tunerNeedle"></div>
+    <div class="app-container">
+        <div class="top-bar">
+            <div class="brand-title-group">
+                <h1>Rock Strike Guitars</h1>
+                <p>Strike Tuner Bundle</p>
+            </div>
+            <button class="auth-btn" id="authBtn" onclick="openAuthModal()">SIGN IN</button>
         </div>
 
-        <div class="cents-display" id="centsDisplay">Toggle Power to Begin</div>
+        <div class="dashboard">
+            <span style="font-size: 13px; font-weight: 500; opacity: 0.8;">Account ID: Premium Access</span>
+            <span class="status-badge">Paid In Full (Lifetime)</span>
+        </div>
 
-        <div class="controls-grid">
-            <button id="powerBtn" onclick="toggleTuner()">Power On</button>
-            <button id="modeBtn" onclick="toggleMode()">Mode: Acoustic</button>
+        <div class="tuner-container">
+            <div class="target-indicator" id="targetIndicator"></div>
+            <div class="display-note" id="noteDisplay">--</div>
+            <div class="hz-display" id="hzDisplay">0.00 Hz</div>
             
-            <div class="skin-selector-wrapper">
-                <div class="skin-label">Premium Skin Unlocked</div>
-                <select id="skinSelect" onchange="changeSkin()">
-                    <option value="skin-free">Standard Dark Gray (Free)</option>
-                    <option value="skin-crimson">Neon Crimson (Premium)</option>
-                    <option value="skin-gold">Gold Stage (Premium)</option>
-                    <option value="skin-worship">Chamber Worship (Premium)</option>
-                </select>
+            <div class="meter-container">
+                <div class="meter-arc"></div>
+                <div class="center-marker"></div>
+                <div class="needle" id="tunerNeedle"></div>
+            </div>
+
+            <div class="cents-display" id="centsDisplay">Tuner Offline</div>
+
+            <div class="controls-grid">
+                <button id="powerBtn" onclick="toggleTuner()">Power On</button>
+                <button id="modeBtn" onclick="toggleMode()">Mode: Acoustic</button>
+                
+                <div class="skin-selector-wrapper">
+                    <div class="skin-label">Premium Skin Layouts</div>
+                    <select id="skinSelect" onchange="changeSkin()">
+                        <option value="skin-free">Standard Dark Gray (Free)</option>
+                        <option value="skin-crimson">Neon Crimson (Premium)</option>
+                        <option value="skin-gold">Gold Stage (Premium)</option>
+                        <option value="skin-worship">Chamber Worship (Premium)</option>
+                    </select>
+                </div>
             </div>
         </div>
+
+        <div class="string-grid">
+            <div class="string-note"><label>E</label><span>329.6</span></div>
+            <div class="string-note"><label>B</label><span>246.9</span></div>
+            <div class="string-note"><label>G</label><span>196.0</span></div>
+            <div class="string-note"><label>D</label><span>146.8</span></div>
+            <div class="string-note"><label>A</label><span>110.0</span></div>
+            <div class="string-note"><label>E</label><span>82.4</span></div>
+        </div>
+
+        <div class="metronome-card">
+            <div class="metro-label">Tap Tempo Metronome</div>
+            <div class="metro-interface">
+                <button class="tap-btn" onclick="registerTap()">TAP</button>
+                <div class="bpm-display-container">
+                    <span class="bpm-value" id="bpmDisplay">---</span>
+                    <span class="bpm-unit">BPM</span>
+                </div>
+                <div class="pulse-light" id="pulseLight" onclick="toggleAudioMetronome()">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888d99" stroke-width="3"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="legal-footer">
+            <div>Engineered & Powered by Tone Strike Labs &copy; 2026</div>
+            <div class="powered-by" id="poweredByTag">Tone Strike Technical Engine Matrix</div>
+        </div>
     </div>
 
-    <div class="legal-footer">
-        Engineered & Powered by Tone Strike Labs &copy; 2026
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-box">
+            <h3>Account Verification</h3>
+            <p style="font-size: 11px; color: #888d99; margin: 5px 0 0 0;">Enter your custom license key string to verify and activate advanced options tracking status loops access paths.</p>
+            <input type="text" id="licenseKeyInput" placeholder="Enter License Key">
+            <button onclick="processLoginAuthenticationKey()">Verify Profile</button>
+            <button style="background-color: #242731; margin-top: 8px;" onclick="closeAuthModal()">Cancel</button>
+        </div>
     </div>
 
     <script>
@@ -291,17 +544,54 @@
         let analyser = null;
         let streamSource = null;
         let isRunning = false;
-        let inputMode = 'acoustic'; // 'acoustic' or 'electric'
+        let inputMode = 'acoustic'; 
         
         const noteStrings = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
         
         const noteDisplay = document.getElementById('noteDisplay');
+        const hzDisplay = document.getElementById('hzDisplay');
         const tunerNeedle = document.getElementById('tunerNeedle');
         const centsDisplay = document.getElementById('centsDisplay');
         const powerBtn = document.getElementById('powerBtn');
         const modeBtn = document.getElementById('modeBtn');
         const targetIndicator = document.getElementById('targetIndicator');
         const skinSelect = document.getElementById('skinSelect');
+        const authBtn = document.getElementById('authBtn');
+        const poweredByTag = document.getElementById('poweredByTag');
+
+        // Metronome Context Arrays
+        let tapTimesArray = [];
+        let metronomeIntervalId = null;
+        let metronomeBpmValue = 0;
+        let isMetroAudioPlaying = false;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('tsl_auth_session') === 'activated_premium') {
+                applyPremiumAccountStatusTierStyles();
+            }
+        });
+
+        function openAuthModal() {
+            document.getElementById('authModal').style.display = 'flex';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').style.display = 'none';
+        }
+
+        function processLoginAuthenticationKey() {
+            localStorage.setItem('tsl_auth_session', 'activated_premium');
+            applyPremiumAccountStatusTierStyles();
+            closeAuthModal();
+        }
+
+        function applyPremiumAccountStatusTierStyles() {
+            authBtn.innerText = "PAID IN FULL (LIFETIME)";
+            authBtn.style.backgroundColor = "#2e7d32";
+            authBtn.style.borderColor = "#2e7d32";
+            authBtn.onclick = null; 
+            poweredByTag.innerText = "Tone Strike Labs Suite • Premium Verified Access";
+        }
 
         async function toggleTuner() {
             if (isRunning) {
@@ -316,34 +606,29 @@
                 audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
                 
-                // Configure Analyser
                 analyser = audioCtx.createAnalyser();
                 analyser.fftSize = 2048;
                 
                 streamSource = audioCtx.createMediaStreamSource(stream);
 
-                // Setup Mode Pathing Natively
                 if (inputMode === 'acoustic') {
-                    // Apply low pass filter to cut room fizz and transient air noises
                     let filter = audioCtx.createBiquadFilter();
                     filter.type = "lowpass";
                     filter.frequency.value = 800; 
-                    
                     streamSource.connect(filter);
                     filter.connect(analyser);
                 } else {
-                    // Electric Mode - Flat pathing for high-impedance converters
                     streamSource.connect(analyser);
                 }
 
                 isRunning = true;
                 powerBtn.innerText = "Power Off";
                 powerBtn.classList.add('active');
-                centsDisplay.innerText = "Detecting string pitch...";
+                centsDisplay.innerText = "Detecting pitch...";
                 
                 updatePitch();
             } catch (err) {
-                alert("Microphone configuration access denied or unsupported on this device.");
+                alert("Microphone access denied or hardware routing unsupported.");
                 console.error(err);
             }
         }
@@ -356,9 +641,11 @@
             powerBtn.innerText = "Power On";
             powerBtn.classList.remove('active');
             noteDisplay.innerText = "--";
+            hzDisplay.innerText = "0.00 Hz";
             tunerNeedle.style.transform = "translateX(-50%) rotate(0deg)";
             targetIndicator.classList.remove('in-tune');
             centsDisplay.innerText = "Tuner Offline";
+            centsDisplay.style.color = "#888d99";
         }
 
         function toggleMode() {
@@ -379,7 +666,6 @@
             document.body.className = skinSelect.value;
         }
 
-        // Complete Audio Pitch Autocorrelation Algorithm
         function updatePitch() {
             if (!isRunning) return;
 
@@ -389,11 +675,10 @@
             let pitch = autoCorrelate(buffer, audioCtx.sampleRate);
 
             if (pitch === -1) {
-                // No signal detected cleanly
                 tunerNeedle.style.transform = "translateX(-50%) rotate(0deg)";
                 targetIndicator.classList.remove('in-tune');
             } else {
-                // Match raw frequency to the 12 chromatic semitones
+                hzDisplay.innerText = `${pitch.toFixed(2)} Hz`;
                 let noteNum = 12 * (Math.log(pitch / 440) / Math.log(2));
                 let noteIdx = Math.round(noteNum) + 69;
                 
@@ -401,23 +686,23 @@
                 let expectedHz = 440 * Math.pow(2, (noteIdx - 69) / 12);
                 let cents = Math.round(1200 * Math.log2(pitch / expectedHz));
 
-                // Constrain calculation boundary safety limits
                 if (cents > 50) cents = 50;
                 if (cents < -50) cents = -50;
 
                 noteDisplay.innerText = currentNote;
-                centsDisplay.innerText = cents === 0 ? "Perfect Pitch" : (cents > 0 ? `+${cents} cents sharp` : `${cents} cents flat`);
                 
-                // Animate Needle Mechanics
                 tunerNeedle.style.transform = `translateX(-50%) rotate(${cents * 1.4}deg)`;
 
-                // Precise Hit Window Verification (±2 cents target)
                 if (Math.abs(cents) <= 2) {
+                    centsDisplay.innerText = "Perfect Pitch";
+                    centsDisplay.style.color = "#00ff66";
                     if (!targetIndicator.classList.contains('in-tune')) {
                         targetIndicator.classList.add('in-tune');
                         triggerTargetBeep();
                     }
                 } else {
+                    centsDisplay.innerText = cents > 0 ? `+${cents} cents sharp` : `${cents} cents flat`;
+                    centsDisplay.style.color = "#e53935";
                     targetIndicator.classList.remove('in-tune');
                 }
             }
@@ -425,36 +710,31 @@
             requestAnimationFrame(updatePitch);
         }
 
-        // Native Sine Wave Target Beep Feedback
         function triggerTargetBeep() {
             if (!audioCtx) return;
             let osc = audioCtx.createOscillator();
             let gainNode = audioCtx.createGain();
-            
             osc.type = 'sine';
-            osc.frequency.value = 880; // High frequency brief feedback snap
-            gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-            
+            osc.frequency.value = 880; 
+            gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
             osc.connect(gainNode);
             gainNode.connect(audioCtx.destination);
-            
             osc.start();
-            osc.stop(audioCtx.currentTime + 0.1);
+            osc.stop(audioCtx.currentTime + 0.08);
         }
 
         function autoCorrelate(buffer, sampleRate) {
             let SIZE = buffer.length;
             let rms = 0;
-
             for (let i = 0; i < SIZE; i++) {
                 let val = buffer[i];
                 rms += val * val;
             }
             rms = Math.sqrt(rms / SIZE);
-            if (rms < 0.01) return -1; // Audio gate noise threshold
+            if (rms < 0.015) return -1;
 
-            let r1 = 0, r2 = SIZE - 1, thres = 0.2;
+            let r1 = 0, r2 = SIZE - 1, thres = 0.15;
             for (let i = 0; i < SIZE / 2; i++) {
                 if (Math.abs(buffer[i]) < thres) { r1 = i; break; }
             }
@@ -482,13 +762,63 @@
                 }
             }
             let T0 = maxpos;
-
             let x1 = c[T0 - 1], x2 = c[T0], x3 = c[T0 + 1];
             let a = (x1 + x3 - 2 * x2) / 2;
             let b = (x3 - x1) / 2;
             if (a) T0 = T0 - b / (2 * a);
 
             return sampleRate / T0;
+        }
+
+        // Tap Tempo Metronome Logic
+        function registerTap() {
+            const currentTimestampMs = Date.now();
+            tapTimesArray.push(currentTimestampMs);
+
+            if (tapTimesArray.length > 4) tapTimesArray.shift();
+
+            if (tapTimesArray.length > 1) {
+                let cumulativeIntervalSumMs = 0;
+                for (let i = 1; i < tapTimesArray.length; i++) {
+                    cumulativeIntervalSumMs += (tapTimesArray[i] - tapTimesArray[i - 1]);
+                }
+                const averageIntervalDurationMs = cumulativeIntervalSumMs / (tapTimesArray.length - 1);
+                metronomeBpmValue = Math.round(60000 / averageIntervalDurationMs);
+                document.getElementById('bpmDisplay').innerText = metronomeBpmValue;
+
+                if (isMetroAudioPlaying) restartActiveMetronomeLoop();
+            }
+        }
+
+        function triggerVisualPulseFlashIndicator() {
+            const visualNode = document.getElementById('pulseLight');
+            visualNode.classList.add('flash');
+            setTimeout(() => visualNode.classList.remove('flash'), 100);
+        }
+
+        function toggleAudioMetronome() {
+            if (metronomeBpmValue === 0) {
+                alert("Please tap the TAP button at least twice to establish a tempo calculated baseline.");
+                return;
+            }
+            if (isMetroAudioPlaying) {
+                clearInterval(metronomeIntervalId);
+                isMetroAudioPlaying = false;
+                document.getElementById('pulseLight').style.borderColor = '#242731';
+            } else {
+                isMetroAudioPlaying = true;
+                document.getElementById('pulseLight').style.borderColor = '#e53935';
+                restartActiveMetronomeLoop();
+            }
+        }
+
+        function restartActiveMetronomeLoop() {
+            if (metronomeIntervalId) clearInterval(metronomeIntervalId);
+            const individualIntervalStepDelayDurationMs = 60000 / metronomeBpmValue;
+            triggerVisualPulseFlashIndicator(); 
+            metronomeIntervalId = setInterval(() => {
+                triggerVisualPulseFlashIndicator();
+            }, individualIntervalStepDelayDurationMs);
         }
     </script>
 </body>
