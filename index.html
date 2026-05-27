@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Strike Guitars - Pro Chromatic Tuner</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --panel-color: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #aaaaaa;
+            --accent-glow: rgba(255, 255, 255, 0.2);
+            --needle-color: #ffffff;
+        }
+
+        /* Skin Definitions */
+        .skin-free {
+            --bg-color: #121212;
+            --panel-color: #1e1e1e;
+            --text-color: #ffffff;
+            --accent-color: #888888;
+            --accent-glow: rgba(136, 136, 136, 0.2);
+        }
+        .skin-crimson {
+            --bg-color: #0d0202;
+            --panel-color: #1c0505;
+            --text-color: #ffb3b3;
+            --accent-color: #ff003c;
+            --accent-glow: rgba(255, 0, 60, 0.5);
+            --needle-color: #ff003c;
+        }
+        .skin-gold {
+            --bg-color: #0f0d05;
+            --panel-color: #211c0a;
+            --text-color: #ffe699;
+            --accent-color: #ffcc00;
+            --accent-glow: rgba(255, 204, 0, 0.5);
+            --needle-color: #ffcc00;
+        }
+        .skin-worship {
+            --bg-color: #050b14;
+            --panel-color: #0b1526;
+            --text-color: #b3d1ff;
+            --accent-color: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.5);
+            --needle-color: #0066ff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .dashboard {
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--panel-color);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .status-badge {
+            background-color: #2e7d32;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .tuner-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--panel-color);
+            border-radius: 16px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .display-note {
+            font-size: 72px;
+            font-weight: bold;
+            margin: 10px 0;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .meter-container {
+            width: 100%;
+            height: 60px;
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .meter-arc {
+            width: 100%;
+            height: 4px;
+            background: #333;
+            position: absolute;
+            top: 30px;
+            border-radius: 2px;
+        }
+
+        .center-marker {
+            width: 4px;
+            height: 20px;
+            background: var(--text-color);
+            position: absolute;
+            left: 50%;
+            top: 22px;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .target-indicator {
+            width: 16px;
+            height: 16px;
+            background-color: #555;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: -2px;
+            transform: translateX(-50%);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .target-indicator.in-tune {
+            background-color: #00ff66 !important;
+            box-shadow: 0 0 15px #00ff66;
+        }
+
+        .needle {
+            width: 3px;
+            height: 35px;
+            background-color: var(--needle-color);
+            position: absolute;
+            left: 50%;
+            top: 15px;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(0deg);
+            transition: transform 0.1s ease-out;
+            box-shadow: 0 0 5px var(--accent-glow);
+        }
+
+        .cents-display {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 5px;
+            height: 20px;
+        }
+
+        .controls-grid {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        button, select {
+            background-color: #2a2a2a;
+            color: var(--text-color);
+            border: 1px solid #444;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+
+        button:hover, select:hover {
+            background-color: #3a3a3a;
+        }
+
+        button.active {
+            background-color: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+        }
+
+        .skin-selector-wrapper {
+            grid-column: span 2;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .skin-label {
+            font-size: 11px;
+            opacity: 0.6;
+            padding-left: 2px;
+        }
+
+        .legal-footer {
+            margin-top: 30px;
+            font-size: 11px;
+            opacity: 0.5;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body class="skin-free">
+
+    <div class="header">
+        <h1>ROCK STRIKE GUITARS</h1>
+        <p>Precision Toolkit Suite</p>
+    </div>
+
+    <div class="dashboard">
+        <span style="font-size: 13px; font-weight: 500;">User Account ID: Premium Access</span>
+        <span class="status-badge">Paid In Full (Lifetime)</span>
+    </div>
+
+    <div class="tuner-container">
+        <div class="target-indicator" id="targetIndicator"></div>
+        <div class="display-note" id="noteDisplay">--</div>
+        
+        <div class="meter-container">
+            <div class="meter-arc"></div>
+            <div class="center-marker"></div>
+            <div class="needle" id="tunerNeedle"></div>
+        </div>
+
+        <div class="cents-display" id="centsDisplay">Toggle Power to Begin</div>
+
+        <div class="controls-grid">
+            <button id="powerBtn" onclick="toggleTuner()">Power On</button>
+            <button id="modeBtn" onclick="toggleMode()">Mode: Acoustic</button>
+            
+            <div class="skin-selector-wrapper">
+                <div class="skin-label">Premium Skin Unlocked</div>
+                <select id="skinSelect" onchange="changeSkin()">
+                    <option value="skin-free">Standard Dark Gray (Free)</option>
+                    <option value="skin-crimson">Neon Crimson (Premium)</option>
+                    <option value="skin-gold">Gold Stage (Premium)</option>
+                    <option value="skin-worship">Chamber Worship (Premium)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="legal-footer">
+        Engineered & Powered by Tone Strike Labs &copy; 2026
+    </div>
+
+    <script>
+        let audioCtx = null;
+        let analyser = null;
+        let streamSource = null;
+        let isRunning = false;
+        let inputMode = 'acoustic'; // 'acoustic' or 'electric'
+        
+        const noteStrings = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+        
+        const noteDisplay = document.getElementById('noteDisplay');
+        const tunerNeedle = document.getElementById('tunerNeedle');
+        const centsDisplay = document.getElementById('centsDisplay');
+        const powerBtn = document.getElementById('powerBtn');
+        const modeBtn = document.getElementById('modeBtn');
+        const targetIndicator = document.getElementById('targetIndicator');
+        const skinSelect = document.getElementById('skinSelect');
+
+        async function toggleTuner() {
+            if (isRunning) {
+                stopTuner();
+            } else {
+                await startTuner();
+            }
+        }
+
+        async function startTuner() {
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+                
+                // Configure Analyser
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 2048;
+                
+                streamSource = audioCtx.createMediaStreamSource(stream);
+
+                // Setup Mode Pathing Natively
+                if (inputMode === 'acoustic') {
+                    // Apply low pass filter to cut room fizz and transient air noises
+                    let filter = audioCtx.createBiquadFilter();
+                    filter.type = "lowpass";
+                    filter.frequency.value = 800; 
+                    
+                    streamSource.connect(filter);
+                    filter.connect(analyser);
+                } else {
+                    // Electric Mode - Flat pathing for high-impedance converters
+                    streamSource.connect(analyser);
+                }
+
+                isRunning = true;
+                powerBtn.innerText = "Power Off";
+                powerBtn.classList.add('active');
+                centsDisplay.innerText = "Detecting string pitch...";
+                
+                updatePitch();
+            } catch (err) {
+                alert("Microphone configuration access denied or unsupported on this device.");
+                console.error(err);
+            }
+        }
+
+        function stopTuner() {
+            isRunning = false;
+            if (streamSource) streamSource.mediaStream.getTracks().forEach(track => track.stop());
+            if (audioCtx) audioCtx.close();
+            
+            powerBtn.innerText = "Power On";
+            powerBtn.classList.remove('active');
+            noteDisplay.innerText = "--";
+            tunerNeedle.style.transform = "translateX(-50%) rotate(0deg)";
+            targetIndicator.classList.remove('in-tune');
+            centsDisplay.innerText = "Tuner Offline";
+        }
+
+        function toggleMode() {
+            if (inputMode === 'acoustic') {
+                inputMode = 'electric';
+                modeBtn.innerText = "Mode: Electric (iRig)";
+            } else {
+                inputMode = 'acoustic';
+                modeBtn.innerText = "Mode: Acoustic";
+            }
+            if (isRunning) {
+                stopTuner();
+                startTuner();
+            }
+        }
+
+        function changeSkin() {
+            document.body.className = skinSelect.value;
+        }
+
+        // Complete Audio Pitch Autocorrelation Algorithm
+        function updatePitch() {
+            if (!isRunning) return;
+
+            let buffer = new Float32Array(analyser.fftSize);
+            analyser.getFloatTimeDomainData(buffer);
+            
+            let pitch = autoCorrelate(buffer, audioCtx.sampleRate);
+
+            if (pitch === -1) {
+                // No signal detected cleanly
+                tunerNeedle.style.transform = "translateX(-50%) rotate(0deg)";
+                targetIndicator.classList.remove('in-tune');
+            } else {
+                // Match raw frequency to the 12 chromatic semitones
+                let noteNum = 12 * (Math.log(pitch / 440) / Math.log(2));
+                let noteIdx = Math.round(noteNum) + 69;
+                
+                let currentNote = noteStrings[noteIdx % 12];
+                let expectedHz = 440 * Math.pow(2, (noteIdx - 69) / 12);
+                let cents = Math.round(1200 * Math.log2(pitch / expectedHz));
+
+                // Constrain calculation boundary safety limits
+                if (cents > 50) cents = 50;
+                if (cents < -50) cents = -50;
+
+                noteDisplay.innerText = currentNote;
+                centsDisplay.innerText = cents === 0 ? "Perfect Pitch" : (cents > 0 ? `+${cents} cents sharp` : `${cents} cents flat`);
+                
+                // Animate Needle Mechanics
+                tunerNeedle.style.transform = `translateX(-50%) rotate(${cents * 1.4}deg)`;
+
+                // Precise Hit Window Verification (±2 cents target)
+                if (Math.abs(cents) <= 2) {
+                    if (!targetIndicator.classList.contains('in-tune')) {
+                        targetIndicator.classList.add('in-tune');
+                        triggerTargetBeep();
+                    }
+                } else {
+                    targetIndicator.classList.remove('in-tune');
+                }
+            }
+
+            requestAnimationFrame(updatePitch);
+        }
+
+        // Native Sine Wave Target Beep Feedback
+        function triggerTargetBeep() {
+            if (!audioCtx) return;
+            let osc = audioCtx.createOscillator();
+            let gainNode = audioCtx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.value = 880; // High frequency brief feedback snap
+            gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+
+        function autoCorrelate(buffer, sampleRate) {
+            let SIZE = buffer.length;
+            let rms = 0;
+
+            for (let i = 0; i < SIZE; i++) {
+                let val = buffer[i];
+                rms += val * val;
+            }
+            rms = Math.sqrt(rms / SIZE);
+            if (rms < 0.01) return -1; // Audio gate noise threshold
+
+            let r1 = 0, r2 = SIZE - 1, thres = 0.2;
+            for (let i = 0; i < SIZE / 2; i++) {
+                if (Math.abs(buffer[i]) < thres) { r1 = i; break; }
+            }
+            for (let i = SIZE - 1; i >= SIZE / 2; i--) {
+                if (Math.abs(buffer[i]) < thres) { r2 = i; break; }
+            }
+
+            buffer = buffer.slice(r1, r2);
+            SIZE = buffer.length;
+
+            let c = new Float32Array(SIZE);
+            for (let i = 0; i < SIZE; i++) {
+                for (let j = 0; j < SIZE - i; j++) {
+                    c[i] = c[i] + buffer[j] * buffer[j + i];
+                }
+            }
+
+            let d = 0;
+            while (c[d] > c[d + 1]) d++;
+            let maxval = -1, maxpos = -1;
+            for (let i = d; i < SIZE; i++) {
+                if (c[i] > maxval) {
+                    maxval = c[i];
+                    maxpos = i;
+                }
+            }
+            let T0 = maxpos;
+
+            let x1 = c[T0 - 1], x2 = c[T0], x3 = c[T0 + 1];
+            let a = (x1 + x3 - 2 * x2) / 2;
+            let b = (x3 - x1) / 2;
+            if (a) T0 = T0 - b / (2 * a);
+
+            return sampleRate / T0;
+        }
+    </script>
+</body>
+</html>
