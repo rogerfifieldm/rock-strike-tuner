@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Rock Strike Guitars Pro Toolkit — Professional chromatic guitar tuner and tap tempo metronome. Built for Christian rock guitarists.">
+    <meta name="theme-color" content="#e53935">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="RSG Pro">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAADk0lEQVR4nLVWsY4jRRB9r3pmPL61b+0F6YCQACRiJEISMn6AABL+AYn8YlII+QxIyQlAIkJCIriVEAt7u2uvPZ7prkcw3lmvx2P2JChNMOqurtdV/br68WQywwHjzr8OOTzWM+sPSZKc3YJHxacAEqT9C4DkeV7mRRksHA28by5vmk29WQEk79PiTokEcDKdZ9kopcbdXwmAtBAyeVouL1NKHcYuAE5nz5LH2GwA8uH6tgIGAnBIQt8BUAh5UZTXV3+mFFuMbcnkPpnO3WOsN6SRxMPPSIEL140rgdZzIElaSrGuq8n0rAM2AJLyosyyomk2tP1TAkAgAgX54cnoo5PRzKyW2PcDSKbYkCzHE8kBZAAlz4sypYj9vO8BNq7nbzz9fHbi0g+r+rPzSwE8RDGSMTZ5PqpWiy2rCAQL7t4PH4AAECgM7xb5Srp2vV1kT427s3sIkpsFkoCy+xPqmYBrV7uDSrp1GRCAtXSVtJIC4MATMuPgbTlw0XYr8+Xr0/dGWSUIeqcIteTA3Pj1m7MI5MBF8q/+XiySwgEMAcwA9WcMuHV98KT44rVpxDaJlSsKBEbkx9MSQBLmwX7ZNN9e3Z6ZJfXjD2fgQElE4MZlW+dtuQUsXQCiMDaV5GA3kQ6Qsg1REr/W6aeqlrByVS3p7mYraS059Fsdf1zXY1IH+AQMnYGAjLyI6ZMXl/NAF2rpm7fm74+LxnWR/NMXl2spJxaul8lLcqixDJZIQEFupPPGWxbVd+3BgT9iallEcjwc/RhAixGAls/+kO8FGYEACDjeFI8BYOeC9AnSfcft8CH/h/Z/AugVAYbKdcxIAzjQQx96AgXpQBJyPm5fBB6ZAYEo/F7HqfEss/PGb4euaA8hu8caNgEj8vnFzffLKiN+rpooFUc6xI5l7XqXmwUNQAnIiJX03bISNCaPRZdoJrkk0gwQiabZhJD3z68juwMGPA12GkJG+vA9EBRC3jS1ugxIqzfr8XgSQt6pAQAEcj185g5tu6HdD0utZqjWSzPrXjQAWC4uT2fP6nqdYmxVAoBMB97RPYukg4TampTjyeLmLylt3+NOF0kKIZtMz0Cm2LjchFJp+DXcWsWQSCNDyEm7Xb5smqrTkA+ElyQCo3KSFyMzA2gH2vy+OQHQ3VOs1+ullMjQVZN9dS13AG2J7tTvUJ3UaUBBEqwnqw50U5p1kocAQAzlsaOludW8+57/AHin3w4ruc0uAAAAAElFTkSuQmCC">
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAF30lEQVR4nO3dvW4cNxRAYa4RpLERuLJK2Q6Q0nr/x5DKALGkUipTplkX1DKj2b2zHP7eS56vCWA42t3h8SUljVaHj58+O+CS33o/gVaOx8If8HAo/AH1GTeO4jVsf/wRWxkojto17Hr0IVqxH0ffJiThWVmuxGwcOps4Z7kSa3FYaeKcwUrsxGE3ixX/Qiwkoj6OYZpYsTBIFMcxahYrigeJyjgmyWJJZSLK4pgwiyVliXzo/QQWJi8jUHMddEwONZdDCx0jpHccpyxuv9/1fSLaPP+8757Iode37G+//ejyuEY9Pz60f9DWcUhNvL48tXwa+n25+Xrxz1tW0i6OVRbUsMuqlTaJtIiDLEppnEjdOJZZ0ERBy0rqJVIxjlAGWVQSEqnUR60vglFGA+HaVvrUr/zkIIv2Ko2QwpODMrqoNEJKxkEZHdXoo1gclNFd8T7KxEEZSpTto0AclKFKwT6KbSuUoUeptciNw+dJGdr4FckcHllxUIZm+X2kx8ENGVYkr1TutsLY0CxzdRLjYEOxImdz0XT3OZRJiYOxYUvy8GByQLQ7Dj5JsWvv2iX+3MoYe8r9nzcxf+3un5faz6S215cn6Xb2DfNuK5Fl7Pqbg9kXxzBH0b3rPUAfCcfSGSdH2koP0Mdee+IY4sedc9Z4kD6i13HGyYFI0XEMMTbwJm41d0wO/y4JA5xGp/V2Jo1+t4u4OBgb44lY04g4KGNU11aWAylE1+JgbIxtc32ZHBBtxsHYmIG8ykwOiOQ4GBvzENaayQERcUAkxMGeMptLK87kgOjSPaS6x0bfmyoyH1317ajH4+p91o1NDuu329h6/pbisHVlJYZexVkcWvcUQ9f0Kr2v5f3q25gceq9mKhOvyEYc6OJ9HFr3FLSzaIDJARFxQLSIgz0F3qkEJgdExAERcUBEHBCd4uA0iqXj0TE5sIE4ILIRh+p7ZJKYeEU24nBGrmYkK6/lg3NmTqNWruk2M6/ieDQzOTwzV1Zg6/knvkltR5nXd+Q7hEszNjnQEnFARBwQEQdExAERcUBEHBARB0TEARFxQEQcEBEHRMQBEXFARBwQEQdExAERcUBEHBARB0TEARFxQEQcEBEHRB+cc6v3ygecc+5wYHJARBwQEQdExAHRKQ7OpFg6HByTAxuIAyLigIg4IFrEwZkU3qkEJgdExAHR+zjYWbBogMkBEXFAdBYHO8vM3q8+kwMi4oDoUhzsLHM6W3cmB0RCHAyP2VxacSYHRNPFkfMLU6b6ZStuK45xd5a0NR65DGGtp5sc3t6VHrkM2WYc4w4Pt2e9By9DXmV7v+OtoMFXPdu1bWXo4YHt9Z30zIEYEXEwPEZ1bWXjJgd9jCdiTXdsK88/751zX26+Jj8f9OXXzq9jjOg4GB4jiVtNDqQQ7YmD4TGG6HVkckC0L47nxwfHmdSmt9Po40P8/8LkgCgxDoaHLWnrtTuOXXMJquxdO7YViFLi4FhqS8JR1GNyQJQYB8PDiuSx4fInB31olrk66bcJPj8+3H77kfPYu/z137/NHquBv3//o9ljJX+Cefj46XPOA/s+Xl+ecj4IasjZULzcbYXDh075ZbiCn63Qhx6l1iJ3W/HC4aPe/sKZI1IoI/9r2WXicE36wFUFy3AFt5XwbNhfeilbhiv7FVL66Kh4Ga7gthJU2l84c2yoUYarEYfHEaSNSll4tb7xxhbTQNUyXL3J4S2/vs4IKWj5T67e7Vd14/BW34JJq4Qzhzsbw7XvymsRh1ckkWk1zsJrF4cnfSOXVlaks1rLe3hbxxG0/Hb/ALrc190tjjfHo//v7fe7nk9Dn/9/Fr7fT6H2jsM7JYJ3ev9wso43jPNXgUSC3ll4mu4+13FF+lNzHXRMjmDyEaImC09ZHN6EiSjLwlMZhzdJIiqz8BTH4YVrN1glipsI1McRDDNILGTh2YnDsztI7DQRWIsjsFKJwSYCs3EEOiux3ERgP45gtR6NWxmihpWB4lip3cqINaz8Aht11GL+S/G6AAAAAElFTkSuQmCC">
+    <title>Rock Strike Guitars — Pro Toolkit</title>
+
+    <!-- ╔══════════════════════════════════════════════════╗
+         ║  GOOGLE ANALYTICS — ADD YOUR MEASUREMENT ID     ║
+         ║  Step 1: Go to analytics.google.com             ║
+         ║  Step 2: Create a property for rockstrikeguitars║
+         ║  Step 3: Copy your G-7Z6QT8F352 Measurement ID  ║
+         ║  Step 4: Replace G-7Z6QT8F352 below with yours  ║
+         ╚══════════════════════════════════════════════════╝ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z6QT8F352"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7Z6QT8F352');
+    </script>
+    <style>
+        :root {
+            --bg:#0b0c10; --panel:#14161e; --border:rgba(255,255,255,0.06);
+            --text:#f0f0f0; --muted:#6b7280; --accent:#e53935;
+            --accent-dim:rgba(229,57,53,0.12); --green:#00e676; --amber:#ff9100;
+            --needle:#ffffff; --btn-bg:#1e2130; --btn-border:#2e3347;
+            --nav-h:68px;
+        }
+        .skin-crimson  { --accent:#ff003c; --needle:#ff003c; --bg:#0d0202; --panel:#1c0505; --text:#ffb3b3; --accent-dim:rgba(255,0,60,0.12); }
+        .skin-gold     { --accent:#ffcc00; --needle:#ffcc00; --bg:#0f0d05; --panel:#211c0a; --text:#ffe699; --accent-dim:rgba(255,204,0,0.12); }
+        .skin-worship  { --accent:#0066ff; --needle:#4d9fff; --bg:#050b14; --panel:#0b1526; --text:#b3d1ff; --accent-dim:rgba(0,102,255,0.12); }
+        .skin-overdrive{ --accent:#22c55e; --needle:#22c55e; --bg:#0a0f0d; --panel:#122018; --text:#bbf7d0; --accent-dim:rgba(34,197,94,0.12); }
+        .skin-sunburst { --accent:#ea580c; --needle:#f97316; --bg:#170500; --panel:#330c00; --text:#fed7aa; --accent-dim:rgba(234,88,12,0.12); }
+        .skin-gothic   { --accent:#a855f7; --needle:#a855f7; --bg:#05000a; --panel:#130022; --text:#f3e8ff; --accent-dim:rgba(168,85,247,0.12); }
+        .skin-synthwave{ --accent:#ec4899; --needle:#06b6d4; --bg:#0c0014; --panel:#240038; --text:#f472b6; --accent-dim:rgba(236,72,153,0.12); }
+        .skin-platinum { --accent:#38bdf8; --needle:#38bdf8; --bg:#0f172a; --panel:#1e293b; --text:#f8fafc; --accent-dim:rgba(56,189,248,0.12); }
+        .skin-stealth  { --accent:#e53935; --needle:#e53935; --bg:#020202; --panel:#0d0d0d; --text:#ededed; --btn-bg:#111; --accent-dim:rgba(229,57,53,0.12); }
+        .skin-cyberpunk{ --accent:#facc15; --needle:#38bdf8; --bg:#181800; --panel:#2c2c02; --text:#facc15; --accent-dim:rgba(250,204,21,0.12); }
+        .skin-royal    { --accent:#3b82f6; --needle:#f59e0b; --bg:#0b0f19; --panel:#172554; --text:#dbeafe; --accent-dim:rgba(59,130,246,0.12); }
+        .skin-sanctuary{ --accent:#0d9488; --needle:#f59e0b; --bg:#061110; --panel:#0d2826; --text:#ccfbf1; --accent-dim:rgba(13,148,136,0.12); }
+        .skin-frost    { --accent:#38bdf8; --needle:#fff; --bg:#0f172a; --panel:#1e293b; --text:#e0f2fe; --accent-dim:rgba(56,189,248,0.12); }
+        .skin-acid     { --accent:#84cc16; --needle:#84cc16; --bg:#0f1702; --panel:#1d2e05; --text:#d9f99d; --accent-dim:rgba(132,204,22,0.12); }
+
+        *, *::before, *::after { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+        body {
+            background:var(--bg); color:var(--text);
+            font-family:'Segoe UI',system-ui,sans-serif;
+            margin:0; padding:0;
+            min-height:100vh;
+            transition:background 0.3s,color 0.3s;
+            overflow-x:hidden;
+        }
+
+        /* ── App shell ── */
+        .app-shell {
+            width:100%; max-width:480px; margin:0 auto;
+            min-height:100vh; display:flex; flex-direction:column;
+            position:relative;
+        }
+
+        /* ── Top header ── */
+        .header {
+            padding:14px 16px 10px;
+            display:flex; justify-content:space-between; align-items:flex-start;
+            gap:10px; flex-shrink:0;
+        }
+        .brand h1 { margin:0; font-size:18px; font-weight:800; color:var(--accent); text-transform:uppercase; letter-spacing:0.4px; line-height:1.1; }
+        .brand .slogan { margin:2px 0 0; font-size:10px; color:var(--text); font-weight:600; font-style:italic; opacity:0.85; }
+        .brand .subtitle { margin:1px 0 0; font-size:10px; color:var(--muted); font-weight:600; }
+        .header-btns { display:flex; gap:7px; align-items:center; flex-shrink:0; padding-top:2px; }
+        .hdr-btn, a.hdr-btn { background:transparent; color:var(--accent); border:1px solid var(--accent); padding:8px 12px; border-radius:8px; font-size:11px; font-weight:700; cursor:pointer; white-space:nowrap; text-decoration:none; display:inline-flex; align-items:center; }
+        .hdr-btn.solid { background:var(--accent); color:#fff; }
+
+        /* ── Scripture ── */
+        .scripture {
+            margin:0 14px 10px; background:var(--accent-dim);
+            border:1px dashed var(--accent); border-radius:12px;
+            padding:14px 16px; font-size:16px; line-height:1.7; text-align:center;
+        }
+        .scripture strong { color:var(--accent); font-size:16px; }
+
+        /* ── Views ── */
+        .view { display:none; flex-direction:column; flex:1; padding:0 14px; padding-bottom:calc(var(--nav-h) + 16px); gap:14px; overflow-y:auto; }
+        .view.active { display:flex; }
+
+        /* ── Bottom nav ── */
+        .bottom-nav {
+            position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+            width:100%; max-width:480px;
+            height:var(--nav-h);
+            background:#0e1018;
+            border-top:1px solid var(--border);
+            display:grid; grid-template-columns:1fr 1fr 1fr;
+            z-index:100;
+        }
+        .nav-tab {
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            gap:0; cursor:pointer; border:none; background:transparent;
+            color:var(--muted); font-size:12px; font-weight:700;
+            text-transform:uppercase; letter-spacing:0.5px;
+            padding:10px 4px; transition:color 0.15s;
+            -webkit-tap-highlight-color:transparent;
+        }
+        .nav-tab .nav-icon { display:none; }
+        .nav-tab.active { color:var(--accent); border-top:2px solid var(--accent); }
+        .nav-tab .metro-live { display:none; width:8px; height:8px; border-radius:50%; background:var(--green); position:absolute; top:14px; right:calc(50% - 28px); box-shadow:0 0 6px var(--green); }
+        .nav-tab .metro-live.on { display:block; }
+
+        /* ── Refund banner ── */
+        .refund-banner { margin:0 14px; background:#7f0000; border:1px solid var(--accent); border-radius:10px; padding:9px 14px; font-size:11px; text-align:center; display:none; }
+
+        /* ── Lockout ── */
+        .lockout {
+            position:fixed; inset:0; background:rgba(6,6,10,0.97);
+            z-index:999; display:none; flex-direction:column;
+            align-items:center; justify-content:center;
+            text-align:center; padding:30px;
+            border:2px solid #7f0000;
+        }
+        .lockout-icon { font-size:52px; margin-bottom:16px; }
+        .lockout h2 { margin:0 0 10px; font-size:22px; text-transform:uppercase; }
+        .lockout p { color:var(--muted); font-size:14px; line-height:1.5; margin-bottom:28px; }
+
+        /* ════════════════════════════════
+           TUNER VIEW
+        ════════════════════════════════ */
+        .tuner-card {
+            background:var(--panel); border:1px solid var(--border);
+            border-radius:18px; padding:28px 20px 22px;
+            display:flex; flex-direction:column; align-items:center;
+        }
+        .in-tune-dot {
+            width:16px; height:16px; border-radius:50%;
+            background:#1a1d28; border:2px solid #2e3347;
+            margin-bottom:6px;
+            transition:background 0.15s,box-shadow 0.15s;
+        }
+        .in-tune-dot.lit { background:var(--green); border-color:var(--green); box-shadow:0 0 14px var(--green); }
+        .note-display {
+            font-size:110px; font-weight:900; height:118px;
+            display:flex; align-items:center; justify-content:center;
+            letter-spacing:-3px; line-height:1;
+        }
+        .hz-display { font-size:14px; font-family:'Courier New',monospace; color:var(--muted); margin-bottom:8px; }
+        .meter { width:100%; height:52px; position:relative; margin:10px 0; }
+        .meter-track { position:absolute; top:26px; left:0; right:0; height:3px; background:#1a1d28; border-radius:2px; }
+        .meter-center { position:absolute; left:50%; top:15px; width:2px; height:22px; background:var(--accent); transform:translateX(-50%); border-radius:1px; }
+        .needle { position:absolute; left:50%; top:8px; width:2px; height:32px; background:var(--needle); border-radius:1px; transform-origin:bottom center; transform:translateX(-50%) rotate(0deg); transition:transform 0.08s ease-out; }
+        .cents-label { font-size:22px; color:var(--muted); height:30px; display:flex; align-items:center; font-weight:800; margin-top:6px; letter-spacing:0.3px; }
+
+        /* Tuner buttons */
+        .tuner-btns { display:grid; grid-template-columns:1fr 1fr; gap:12px; width:100%; margin-top:18px; }
+
+        /* Sensitivity slider */
+        .sens-wrap { width:100%; margin-top:16px; padding-top:14px; border-top:1px solid var(--border); }
+        .sens-label-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+        .sens-label-txt { font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+        .sens-val { font-size:11px; color:var(--accent); font-weight:700; }
+        .sens-slider { width:100%; height:34px; -webkit-appearance:none; appearance:none; background:transparent; cursor:pointer; margin:0; }
+        .sens-slider::-webkit-slider-runnable-track { height:6px; background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:4px; }
+        .sens-slider::-webkit-slider-thumb { -webkit-appearance:none; width:26px; height:26px; border-radius:50%; background:var(--accent); border:3px solid var(--text); margin-top:-11px; box-shadow:0 0 8px var(--accent-dim); }
+        .sens-slider::-moz-range-track { height:6px; background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:4px; }
+        .sens-slider::-moz-range-thumb { width:26px; height:26px; border-radius:50%; background:var(--accent); border:3px solid var(--text); box-shadow:0 0 8px var(--accent-dim); }
+        .sens-hint { font-size:10px; color:var(--muted); margin-top:6px; line-height:1.4; text-align:center; }
+        .t-btn {
+            background:var(--btn-bg); color:var(--text);
+            border:1px solid var(--btn-border);
+            padding:0; height:58px;
+            border-radius:12px; font-size:15px; font-weight:700;
+            cursor:pointer; transition:background 0.12s;
+            display:flex; align-items:center; justify-content:center;
+        }
+        .t-btn.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .t-btn:active { opacity:0.8; }
+
+        /* Theme selector */
+        .theme-wrap { width:100%; margin-top:4px; }
+        .theme-label { font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:6px; }
+        .theme-select {
+            width:100%; background:var(--btn-bg); color:var(--text);
+            border:1px solid var(--btn-border); padding:14px 16px;
+            border-radius:12px; font-size:14px; outline:none; cursor:pointer;
+            -webkit-appearance:none; appearance:none;
+        }
+
+        /* String buttons */
+        .strings-label { font-size:11px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; }
+        .strings {
+            display:grid; grid-template-columns:repeat(6,1fr); gap:8px;
+        }
+        .str-btn {
+            background:var(--panel); border:1px solid var(--border);
+            border-radius:12px; padding:14px 0;
+            text-align:center; cursor:pointer;
+            user-select:none; transition:background 0.1s,transform 0.08s;
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            min-height:64px;
+        }
+        .str-btn:active { transform:scale(0.92); background:var(--accent); }
+        .str-btn .sn { font-size:20px; font-weight:800; pointer-events:none; }
+        .str-btn .sh { font-size:9px; color:var(--muted); margin-top:3px; pointer-events:none; }
+
+        /* ════════════════════════════════
+           METRONOME VIEW
+        ════════════════════════════════ */
+        .metro-view { gap:16px; }
+
+        /* BPM display */
+        .bpm-card {
+            background:var(--panel); border:1px solid var(--border);
+            border-radius:18px; padding:28px 20px 24px;
+            display:flex; flex-direction:column; align-items:center; gap:6px;
+        }
+        .bpm-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--muted); }
+        .bpm-big { font-size:96px; font-weight:900; line-height:1; letter-spacing:-4px; }
+        .bpm-unit-lbl { font-size:13px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:2px; margin-top:-4px; }
+        .bpm-stepper { display:flex; align-items:center; gap:16px; margin-top:8px; }
+        .bpm-step-btn {
+            background:var(--btn-bg); color:var(--text);
+            border:1px solid var(--btn-border);
+            width:56px; height:56px; border-radius:14px;
+            font-size:28px; display:flex; align-items:center; justify-content:center;
+            cursor:pointer; font-weight:300; line-height:1;
+        }
+        .bpm-step-btn:active { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .bpm-input-wrap { display:flex; flex-direction:column; align-items:center; }
+        .bpm-num-input {
+            font-size:96px; font-weight:900; background:transparent;
+            border:none; color:var(--text); width:160px;
+            text-align:center; outline:none; font-family:inherit;
+            padding:0; line-height:1; letter-spacing:-4px;
+            -webkit-appearance:none; -moz-appearance:textfield; appearance:none;
+        }
+        .bpm-num-input::-webkit-outer-spin-button,
+        .bpm-num-input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+
+        /* Beat dots */
+        .beat-dots-row { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; padding:4px 0; }
+        .beat-group { display:flex; gap:5px; align-items:center; padding:4px 6px; border-radius:10px; background:rgba(255,255,255,0.02); }
+        .beat-dot { width:18px; height:18px; border-radius:50%; background:#1a1d28; border:2px solid var(--btn-border); transition:background 0.05s,transform 0.05s; }
+        .beat-dot.sub-dot { width:11px; height:11px; opacity:0.7; }
+        .beat-dot.accent-dot { background:#3a3f52; border-color:#5a6080; }
+        .beat-dot.back-dot   { background:#2a1a1a; border-color:#4a2020; }
+        .beat-dot.active     { background:var(--accent) !important; border-color:var(--accent) !important; box-shadow:0 0 10px var(--accent); transform:scale(1.25); }
+
+        /* Subdivision selector */
+        .subdiv-row { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:14px 16px; }
+        .subdiv-label-row { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+        .subdiv-label-txt { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); }
+        .subdiv-lock { margin-top:10px; padding:9px 12px; background:rgba(229,57,53,0.06); border:1px dashed var(--accent); border-radius:8px; font-size:11px; color:var(--muted); text-align:center; }
+        .subdiv-lock a { color:var(--accent); text-decoration:none; font-weight:700; }
+
+        /* Controls row */
+        .metro-controls { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .m-btn {
+            height:64px; border-radius:14px; font-size:16px; font-weight:700;
+            border:1px solid var(--btn-border); cursor:pointer;
+            display:flex; align-items:center; justify-content:center;
+            transition:background 0.12s; background:var(--btn-bg); color:var(--text);
+        }
+        .m-btn:active { opacity:0.8; }
+        .m-btn.start { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .m-btn.start.running { background:#1e2130; color:var(--accent); border-color:var(--accent); }
+        .m-btn.tap-btn { background:var(--btn-bg); color:var(--text); }
+        .m-btn.tap-btn:active { background:var(--accent); color:#fff; }
+
+        /* Time sig + accent row */
+        .metro-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .m-select {
+            height:54px; background:var(--btn-bg); color:var(--text);
+            border:1px solid var(--btn-border); border-radius:12px;
+            padding:0 14px; font-size:13px; font-weight:600;
+            outline:none; cursor:pointer; -webkit-appearance:none; width:100%;
+        }
+        .accent-tog {
+            height:54px; border-radius:12px; font-size:12px; font-weight:700;
+            border:1px solid var(--btn-border); cursor:pointer;
+            background:var(--btn-bg); color:var(--muted);
+            transition:all 0.15s;
+        }
+        .accent-tog.on { background:rgba(0,230,118,0.1); border-color:var(--green); color:var(--green); }
+
+        /* Sound panel */
+        .sound-card {
+            background:var(--panel); border:1px solid var(--border);
+            border-radius:16px; padding:18px;
+        }
+        .sound-card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+        .sound-card-title { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted); }
+        .pro-tag { background:var(--accent); color:#fff; font-size:9px; font-weight:700; padding:3px 7px; border-radius:4px; }
+        .sound-slots { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+        .sound-slot-row { display:flex; align-items:center; gap:10px; }
+        .slot-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+        .dot-down { background:#5a6080; }
+        .dot-back { background:#7a3030; }
+        .dot-std  { background:#2e3347; border:1px solid #3a4060; }
+        .slot-lbl { font-size:12px; color:var(--muted); font-weight:600; width:130px; flex-shrink:0; }
+        .slot-lbl.main { color:var(--text); font-weight:700; }
+        .sound-sel {
+            flex:1; background:#0a0c14; border:1px solid var(--btn-border);
+            color:var(--text); padding:10px 12px; border-radius:10px;
+            font-size:13px; outline:none; cursor:pointer; -webkit-appearance:none;
+        }
+        .preview-section { border-top:1px solid var(--border); padding-top:12px; }
+        .preview-lbl { font-size:10px; color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+        .preview-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+        .prev-btn {
+            background:#0a0c14; border:1px solid var(--btn-border);
+            color:var(--muted); padding:10px 0; border-radius:10px;
+            font-size:12px; font-weight:600; cursor:pointer;
+            transition:background 0.1s,color 0.1s;
+        }
+        .prev-btn:active { background:var(--accent); color:#fff; border-color:var(--accent); }
+        .sound-lock {
+            padding:12px 14px; background:rgba(229,57,53,0.06);
+            border:1px dashed var(--accent); border-radius:10px;
+            font-size:12px; color:var(--muted); text-align:center;
+        }
+        .sound-lock a { color:var(--accent); text-decoration:none; font-weight:700; }
+
+        /* ── Pro skin lock overlay ── */
+        .lock-overlay {
+            position:fixed; inset:0; background:rgba(6,6,10,0.92);
+            z-index:2000; display:none; align-items:center; justify-content:center; padding:24px;
+        }
+        .lock-card { background:#12141a; border:1px solid var(--accent); border-radius:18px; padding:30px 24px; max-width:320px; width:100%; text-align:center; }
+        .lock-card .lock-icon { font-size:40px; margin-bottom:14px; }
+        .lock-card h3 { margin:0 0 10px; font-size:20px; color:var(--accent); text-transform:uppercase; }
+        .lock-card p { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:22px; }
+        .lock-btns { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .lock-up-btn { background:var(--accent); color:#fff; border:none; padding:14px; border-radius:10px; font-weight:700; font-size:14px; cursor:pointer; }
+        .lock-no-btn { background:var(--btn-bg); color:var(--muted); border:1px solid var(--btn-border); padding:14px; border-radius:10px; font-weight:600; font-size:13px; cursor:pointer; }
+
+        /* ── Modals ── */
+        .modal-overlay { position:fixed; inset:0; background:rgba(4,4,8,0.98); display:none; overflow-y:auto; padding:20px 14px 30px; z-index:1000; }
+        .modal-card { max-width:420px; margin:0 auto; background:#11131a; border:1px solid #1e2130; border-radius:20px; padding:24px; }
+        .modal-sec { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin:20px 0 10px; }
+        .modal-close-btn { background:var(--accent); color:#fff; border:none; padding:16px; border-radius:12px; width:100%; font-weight:700; font-size:15px; cursor:pointer; margin-top:6px; }
+        .avatar-wrap { position:relative; width:90px; height:90px; margin:0 auto 14px; }
+        .avatar-img { width:100%; height:100%; border-radius:50%; background:#1a1c23; border:2px solid var(--accent); display:flex; align-items:center; justify-content:center; overflow:hidden; }
+        .avatar-img svg { fill:var(--muted); width:44px; height:44px; }
+        .cam-btn { position:absolute; bottom:0; right:0; background:var(--accent); width:30px; height:30px; border-radius:50%; border:2px solid #11131a; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+        .cam-btn svg { fill:#fff; width:15px; height:15px; }
+        input[type=file] { display:none; }
+        .modal-name { font-size:20px; font-weight:700; text-align:center; margin:0 0 4px; }
+        .modal-sub  { font-size:12px; color:var(--muted); text-align:center; margin:0 0 8px; }
+        .status-msg { border-radius:10px; padding:10px 14px; font-size:12px; text-align:center; font-weight:600; border:1px solid; margin-bottom:6px; }
+        .status-msg.pro   { background:rgba(0,230,118,0.08); border-color:var(--green); color:var(--green); }
+        .status-msg.free  { background:var(--panel); border-color:var(--btn-border); color:var(--muted); }
+        .status-msg.amber { background:rgba(255,145,0,0.08); border-color:var(--amber); color:var(--amber); }
+        .status-msg a { color:var(--accent); text-decoration:none; font-weight:700; }
+        .modal-input { width:100%; padding:13px 14px; background:#1a1c23; border:1px solid #242731; color:var(--text); border-radius:10px; font-size:14px; outline:none; margin-bottom:10px; font-family:inherit; }
+        .input-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+        .input-row select { background:#1a1c23; border:1px solid #242731; padding:13px 14px; border-radius:10px; font-size:13px; color:var(--text); outline:none; -webkit-appearance:none; }
+        .meta-box { background:#1a1c23; border:1px solid #242731; border-radius:12px; padding:14px; margin-bottom:14px; }
+        .meta-row { display:flex; justify-content:space-between; font-size:12px; margin-bottom:7px; }
+        .meta-row:last-child { margin-bottom:0; }
+        .meta-k { color:var(--muted); font-weight:700; text-transform:uppercase; }
+        .meta-v { font-family:monospace; color:var(--text); }
+        .tier-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .tier-box { border-radius:12px; padding:14px; }
+        .tier-free { background:#0d0f18; border:1px solid var(--btn-border); }
+        .tier-pro  { background:var(--accent-dim); border:1px solid var(--accent); }
+        .tier-name { font-size:10px; font-weight:700; text-transform:uppercase; color:var(--muted); margin-bottom:6px; letter-spacing:0.5px; }
+        .tier-pro .tier-name { color:var(--accent); }
+        .tier-price { font-size:20px; font-weight:800; margin-bottom:3px; }
+        .tier-sub { font-size:9px; color:var(--muted); margin-bottom:8px; }
+        .tier-feat { font-size:11px; color:var(--muted); line-height:1.75; }
+        .tier-feat span { color:var(--text); }
+        .upgrade-btn { background:var(--accent); color:#fff; border:none; padding:10px; border-radius:9px; width:100%; font-weight:700; font-size:12px; cursor:pointer; margin-top:10px; }
+        .disc-box { background:#0b0c10; border:1px solid #1e2130; border-radius:12px; padding:16px; margin-bottom:18px; }
+        .disc-sec { margin-bottom:14px; }
+        .disc-sec:last-child { margin-bottom:0; }
+        .disc-head { font-size:10px; font-weight:700; text-transform:uppercase; color:var(--accent); letter-spacing:0.4px; margin-bottom:6px; }
+        .disc-text { font-size:11px; color:var(--muted); line-height:1.65; }
+        .what-you-get { background:var(--accent-dim); border:1px solid var(--accent); border-radius:12px; padding:14px; margin-bottom:16px; }
+        .what-title { font-size:10px; font-weight:700; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
+        .what-list { font-size:12px; color:var(--muted); line-height:1.85; }
+        .what-list span { color:var(--text); }
+        .guarantee-note { text-align:center; font-size:11px; color:var(--muted); margin-bottom:14px; line-height:1.6; }
+        .dev-box { background:#0d0f18; border:1px solid #2a1010; border-radius:12px; padding:14px; margin-bottom:14px; }
+        .dev-title { font-size:10px; color:var(--accent); font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+        .dev-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+        .dev-btn { background:#1e2130; border:1px solid #3a3f50; color:var(--muted); padding:10px; font-size:11px; border-radius:8px; cursor:pointer; }
+        .dev-btn.g { border-color:#00c853; color:#b9f6ca; }
+
+        /* footer */
+        .view-footer { text-align:center; font-size:10px; color:var(--muted); opacity:0.5; padding-bottom:4px; }
+        .view-footer .tsl { color:var(--accent); font-weight:700; }
+
+        /* ════════════════════════════════
+           HELP / FAQ / CHORDS VIEW
+        ════════════════════════════════ */
+        .help-view { gap:14px; }
+        .help-subnav { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:5px; }
+        .help-sub-btn { background:transparent; color:var(--muted); border:none; padding:11px 4px; border-radius:9px; font-size:11px; font-weight:700; cursor:pointer; text-transform:uppercase; letter-spacing:0.3px; transition:all 0.15s; }
+        .help-sub-btn.active { background:var(--accent); color:#fff; }
+        .help-pane { display:none; flex-direction:column; gap:12px; }
+        .help-pane.active { display:flex; }
+
+        .help-card { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:18px; }
+        .help-card-title { font-size:14px; font-weight:800; color:var(--accent); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.3px; }
+        .help-card-text { font-size:13px; color:var(--text); line-height:1.6; }
+        .help-card-text strong { color:var(--accent); }
+
+        .tuning-order { display:flex; flex-direction:column; gap:6px; margin-top:12px; }
+        .tuning-step { display:grid; grid-template-columns:28px 36px 70px 1fr; align-items:center; gap:10px; background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:10px; padding:10px 12px; }
+        .tuning-num { font-size:11px; color:var(--muted); font-weight:700; }
+        .tuning-note { font-size:18px; font-weight:800; color:var(--accent); }
+        .tuning-hz { font-size:11px; color:var(--muted); font-family:monospace; }
+        .tuning-name { font-size:12px; color:var(--text); font-weight:600; }
+
+        .help-steps { margin:0; padding-left:20px; display:flex; flex-direction:column; gap:10px; }
+        .help-steps li { font-size:13px; color:var(--text); line-height:1.6; }
+        .help-steps strong { color:var(--accent); }
+
+        /* Chord chart */
+        .chord-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+        .chord-card { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:14px; display:flex; flex-direction:column; align-items:center; cursor:pointer; transition:border-color 0.15s; }
+        .chord-card:active { border-color:var(--accent); }
+        .chord-name { font-size:16px; font-weight:800; color:var(--accent); margin-bottom:8px; }
+        .chord-svg-wrap { width:100%; display:flex; justify-content:center; }
+
+        /* FAQ */
+        .faq-list { display:flex; flex-direction:column; gap:10px; }
+        .faq-item { background:var(--panel); border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+        .faq-q { padding:15px 16px; font-size:13px; font-weight:700; color:var(--text); cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+        .faq-q .faq-arrow { color:var(--accent); font-size:14px; transition:transform 0.2s; flex-shrink:0; }
+        .faq-item.open .faq-arrow { transform:rotate(180deg); }
+        .faq-a { padding:0 16px; font-size:12px; color:var(--muted); line-height:1.6; max-height:0; overflow:hidden; transition:max-height 0.25s ease, padding 0.25s ease; }
+        .faq-item.open .faq-a { padding:0 16px 16px; max-height:400px; }
+        .faq-a strong { color:var(--text); }
+
+        /* Practice intervals — inherits existing Rock Strike theme */
+        .practice-card { background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:18px; display:flex; flex-direction:column; gap:12px; }
+        .practice-heading { display:flex; align-items:center; justify-content:space-between; gap:10px; color:var(--accent); font-size:14px; font-weight:800; text-transform:uppercase; }
+        .practice-fields { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+        .practice-fields label { font-size:11px; color:var(--muted); font-weight:700; display:flex; flex-direction:column; gap:6px; }
+        .practice-fields input { width:100%; min-width:0; padding:12px 6px; border-radius:9px; border:1px solid var(--btn-border); background:var(--btn-bg); color:var(--text); font-size:17px; text-align:center; }
+        .practice-time { font-size:46px; font-weight:900; text-align:center; font-variant-numeric:tabular-nums; color:var(--text); }
+        .practice-status { text-align:center; color:var(--accent); font-size:12px; font-weight:800; letter-spacing:.7px; }
+        .practice-actions { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .practice-actions button { min-height:50px; border-radius:11px; border:1px solid var(--btn-border); background:var(--btn-bg); color:var(--text); font-size:14px; font-weight:800; }
+        .practice-actions button:first-child { background:var(--accent); border-color:var(--accent); color:white; }
+        .practice-note { font-size:11px; color:var(--muted); line-height:1.5; }
+    </style>
+</head>
+<body>
+
+<!-- Lockout -->
+<div class="lockout" id="lockoutScreen">
+    <div class="lockout-icon">🔒</div>
+    <h2>License Deactivated</h2>
+    <p>Your refund has been fully processed. Access for this device has expired.</p>
+    <button class="modal-close-btn" style="background:#1e2130;max-width:200px;" onclick="resetState()">← Restart Demo</button>
+</div>
+
+<!-- Pro skin lock -->
+<div class="lock-overlay" id="lockOverlay">
+    <div class="lock-card">
+        <div class="lock-icon">🔒</div>
+        <h3>Pro Theme</h3>
+        <p>This theme is included in the Pro Toolkit. Upgrade once for $14.99 and unlock all 11 Pro themes plus every future update.</p>
+        <div class="lock-btns">
+            <button class="lock-up-btn" onclick="closeLock();openPricing();">Upgrade →</button>
+            <button class="lock-no-btn" onclick="closeLock()">Not Now</button>
+        </div>
+    </div>
+</div>
+
+<div class="app-shell">
+
+    <!-- Refund banner -->
+    <div class="refund-banner" id="refundBanner"></div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="brand">
+            <h1>Rock Strike Guitars</h1>
+            <p class="slogan">Striking Chords for the Lord!</p>
+            <p class="subtitle" id="brandSub">Christian Rock Guitar Pro Toolkit</p>
+        </div>
+        <div class="header-btns">
+            <a href="mailto:rockstrikelabs@gmail.com" class="hdr-btn">Support</a>
+            <button class="hdr-btn" onclick="openPricing()">Pricing</button>
+            <button class="hdr-btn solid" onclick="openAccount()">My Account</button>
+        </div>
+    </div>
+
+    <!-- Scripture -->
+    <div class="scripture" id="scripture"></div>
+
+    <!-- ═══════ TUNER VIEW ═══════ -->
+    <div class="view active" id="viewTuner">
+
+        <div class="tuner-card">
+            <div class="in-tune-dot" id="inTuneDot"></div>
+            <div class="note-display" id="noteDisplay">—</div>
+            <div class="hz-display" id="hzDisplay">— Hz</div>
+            <div class="meter">
+                <div class="meter-track"></div>
+                <div class="meter-center"></div>
+                <div class="needle" id="needle"></div>
+            </div>
+            <div class="cents-label" id="centsLabel">Tuner offline</div>
+            <div class="tuner-btns">
+                <button class="t-btn" id="powerBtn" onclick="toggleTuner()">Power On</button>
+                <button class="t-btn" id="modeBtn" onclick="toggleMode()">Acoustic</button>
+            </div>
+            <div class="sens-wrap">
+                <div class="sens-label-row">
+                    <span class="sens-label-txt">Mic Sensitivity</span>
+                    <span class="sens-val" id="sensVal">Medium</span>
+                </div>
+                <input type="range" id="sensSlider" class="sens-slider" min="1" max="10" value="3" oninput="setSensitivity(this.value)">
+                <div class="sens-hint">Lower if picking up background noise. Raise in a quiet room.</div>
+            </div>
+        </div>
+
+        <div class="theme-wrap">
+            <div class="theme-label">Theme</div>
+            <select class="theme-select" id="skinSelect" onchange="handleSkinChange()">
+                <optgroup label="── Free Themes ──">
+                    <option value="">Standard Dark</option>
+                    <option value="skin-crimson">Neon Crimson</option>
+                    <option value="skin-gold">Gold Stage</option>
+                    <option value="skin-worship">Chamber Worship</option>
+                </optgroup>
+                <optgroup label="── Pro Themes 🔒 ──">
+                    <option value="skin-overdrive">Metal Overdrive</option>
+                    <option value="skin-sunburst">Vintage Sunburst</option>
+                    <option value="skin-gothic">Gothic Metal</option>
+                    <option value="skin-synthwave">Neon Synthwave</option>
+                    <option value="skin-platinum">Liquid Platinum</option>
+                    <option value="skin-stealth">Blackout Stealth</option>
+                    <option value="skin-cyberpunk">Cyberpunk Industrial</option>
+                    <option value="skin-royal">Royal Navy</option>
+                    <option value="skin-sanctuary">Deep Sanctuary</option>
+                    <option value="skin-frost">Glacial Frost</option>
+                    <option value="skin-acid">Acid Green</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="strings-label">String Reference Tones</div>
+        <div class="strings">
+            <div class="str-btn" onclick="playTone(82.41)"> <div class="sn">E</div><div class="sh">82.4</div></div>
+            <div class="str-btn" onclick="playTone(110.00)"><div class="sn">A</div><div class="sh">110.0</div></div>
+            <div class="str-btn" onclick="playTone(146.83)"><div class="sn">D</div><div class="sh">146.8</div></div>
+            <div class="str-btn" onclick="playTone(196.00)"><div class="sn">G</div><div class="sh">196.0</div></div>
+            <div class="str-btn" onclick="playTone(246.94)"><div class="sn">B</div><div class="sh">246.9</div></div>
+            <div class="str-btn" onclick="playTone(329.63)"><div class="sn">E</div><div class="sh">329.6</div></div>
+        </div>
+
+        <div class="view-footer">
+            Rock Strike Guitars &copy; 2026 &nbsp;·&nbsp; Powered by <span class="tsl">ROCK STRIKE LABS</span>
+        </div>
+    </div>
+
+    <!-- ═══════ METRONOME VIEW ═══════ -->
+    <div class="view metro-view" id="viewMetro">
+
+        <!-- BPM display -->
+        <div class="bpm-card">
+            <div class="bpm-label">Tempo</div>
+            <div class="bpm-stepper">
+                <button class="bpm-step-btn" onclick="nudgeBpm(-1)">−</button>
+                <div class="bpm-input-wrap">
+                    <input type="number" class="bpm-num-input" id="bpmInput" value="120" min="40" max="250" oninput="onBpmInput()">
+                </div>
+                <button class="bpm-step-btn" onclick="nudgeBpm(1)">+</button>
+            </div>
+            <div class="bpm-unit-lbl">BPM</div>
+            <div class="beat-dots-row" id="beatDots"></div>
+        </div>
+
+        <!-- Start/Stop + Tap -->
+        <div class="metro-controls">
+            <button class="m-btn start" id="metroStartBtn" onclick="toggleMetro()">START</button>
+            <button class="m-btn tap-btn" onclick="tap()">TAP</button>
+        </div>
+
+        <!-- Time sig + Accent -->
+        <div class="metro-options">
+            <select class="m-select" id="timeSig" onchange="setTimeSig()">
+                <option value="4">4/4 Standard</option>
+                <option value="3">3/4 Waltz</option>
+                <option value="2">2/4 Half</option>
+                <option value="6">6/8 Worship</option>
+                <option value="12">12/8 Anthem</option>
+            </select>
+            <button class="accent-tog on" id="accentToggle" onclick="toggleAccent()">Accents: ON</button>
+        </div>
+
+        <!-- Subdivision selector (Pro) -->
+        <div class="subdiv-row">
+            <div class="subdiv-label-row">
+                <span class="subdiv-label-txt">Rhythm Subdivision</span>
+                <span class="pro-tag">PRO</span>
+            </div>
+            <select class="m-select" id="subdivSelect" onchange="setSubdivision()" style="width:100%;">
+                <option value="quarter">Quarter Notes (♩)</option>
+                <option value="eighth">8th Notes (♫)</option>
+                <option value="sixteenth">16th Notes (♬)</option>
+                <option value="triplet">Triplets (3 even)</option>
+                <option value="gallop">Gallop — long-short-short</option>
+                <option value="revgallop">Reverse Gallop — short-short-long</option>
+                <option value="shuffle">Shuffle / Swing</option>
+            </select>
+            <div class="subdiv-lock" id="subdivLockNotice" style="display:none;">
+                🔒 Subdivisions are a <a href="#" onclick="openPricing();return false;">Pro feature — Upgrade $14.99 →</a>
+            </div>
+        </div>
+
+
+        <!-- Timed practice and optional recovery intervals -->
+        <section class="practice-card" aria-label="Timed practice">
+            <div class="practice-heading"><span>Practice Timer</span><span class="pro-tag" id="practiceProTag">PRO REST</span></div>
+            <div class="practice-fields">
+                <label>Play (seconds)<input id="practicePlay" type="number" min="5" max="7200" value="300" inputmode="numeric"></label>
+                <label>Rest (seconds)<input id="practiceRest" type="number" min="0" max="600" value="30" inputmode="numeric"></label>
+                <label>Rounds<input id="practiceRounds" type="number" min="1" max="99" value="3" inputmode="numeric"></label>
+            </div>
+            <div class="practice-status" id="practiceStatus" aria-live="polite">READY · 160 BPM OR YOUR CHOSEN TEMPO</div>
+            <div class="practice-time" id="practiceClock" role="timer">05:00</div>
+            <div class="practice-actions">
+                <button id="practiceToggle" onclick="togglePractice()">START SESSION</button>
+                <button onclick="resetPractice()">RESET</button>
+            </div>
+            <div class="practice-note">Free: one timed playing interval. Pro: automatic rest and repeat rounds. The metronome is silent during rest. Keep this page visible for reliable mobile playback.</div>
+        </section>
+
+        <!-- Sound panel -->
+        <div class="sound-card">
+            <div class="sound-card-header">
+                <div class="sound-card-title">Beat Sounds</div>
+                <span class="pro-tag">PRO</span>
+            </div>
+
+            <div id="soundPanel">
+                <div class="sound-slots">
+                    <div class="sound-slot-row">
+                        <div class="slot-dot dot-down"></div>
+                        <div class="slot-lbl main">Downbeat (1)</div>
+                        <select class="sound-sel" id="soundDown" onchange="updateSoundSlot()">
+                            <option value="click">Click</option>
+                            <option value="kick" selected>Kick Drum</option>
+                            <option value="wood">Wood Block</option>
+                            <option value="cowbell">Cowbell</option>
+                            <option value="snare">Snare</option>
+                            <option value="rimshot">Rimshot</option>
+                            <option value="hihat">Hi-Hat</option>
+                        </select>
+                    </div>
+                    <div class="sound-slot-row">
+                        <div class="slot-dot dot-back"></div>
+                        <div class="slot-lbl">Backbeat (2 & 4)</div>
+                        <select class="sound-sel" id="soundBack" onchange="updateSoundSlot()">
+                            <option value="click">Click</option>
+                            <option value="kick">Kick Drum</option>
+                            <option value="wood">Wood Block</option>
+                            <option value="cowbell">Cowbell</option>
+                            <option value="snare" selected>Snare</option>
+                            <option value="rimshot">Rimshot</option>
+                            <option value="hihat">Hi-Hat</option>
+                        </select>
+                    </div>
+                    <div class="sound-slot-row">
+                        <div class="slot-dot dot-std"></div>
+                        <div class="slot-lbl">All Other Beats</div>
+                        <select class="sound-sel" id="soundStd" onchange="updateSoundSlot()">
+                            <option value="click" selected>Click</option>
+                            <option value="kick">Kick Drum</option>
+                            <option value="wood">Wood Block</option>
+                            <option value="cowbell">Cowbell</option>
+                            <option value="snare">Snare</option>
+                            <option value="rimshot">Rimshot</option>
+                            <option value="hihat">Hi-Hat</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="preview-section">
+                    <div class="preview-lbl">Preview Sounds</div>
+                    <div class="preview-grid">
+                        <button class="prev-btn" onclick="previewSound('click')">Click</button>
+                        <button class="prev-btn" onclick="previewSound('kick')">Kick</button>
+                        <button class="prev-btn" onclick="previewSound('wood')">Wood</button>
+                        <button class="prev-btn" onclick="previewSound('cowbell')">Cowbell</button>
+                        <button class="prev-btn" onclick="previewSound('snare')">Snare</button>
+                        <button class="prev-btn" onclick="previewSound('rimshot')">Rimshot</button>
+                        <button class="prev-btn" onclick="previewSound('hihat')">Hi-Hat</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sound-lock" id="soundLock" style="display:none;">
+                🔒 Beat sounds are a <a href="#" onclick="openPricing();return false;">Pro feature — Upgrade $14.99 →</a>
+            </div>
+        </div>
+
+        <div class="view-footer">
+            Rock Strike Guitars &copy; 2026 &nbsp;·&nbsp; Powered by <span class="tsl">ROCK STRIKE LABS</span>
+        </div>
+    </div>
+
+    <!-- ═══════ HELP / CHORDS / FAQ VIEW ═══════ -->
+    <div class="view help-view" id="viewHelp">
+
+        <!-- Sub-nav within Help -->
+        <div class="help-subnav">
+            <button class="help-sub-btn active" data-pane="tuning" onclick="showHelpPane('tuning')">Tuning Guide</button>
+            <button class="help-sub-btn" data-pane="chords" onclick="showHelpPane('chords')">Chord Chart</button>
+            <button class="help-sub-btn" data-pane="faq" onclick="showHelpPane('faq')">FAQ</button>
+        </div>
+
+        <!-- ── Tuning Guide pane ── -->
+        <div class="help-pane active" id="paneTuning">
+            <div class="help-card">
+                <div class="help-card-title">How to Tune Your Guitar</div>
+                <div class="help-card-text">
+                    Standard tuning from the thickest (lowest) string to the thinnest (highest) string is:
+                </div>
+                <div class="tuning-order">
+                    <div class="tuning-step"><span class="tuning-num">6</span><span class="tuning-note">E</span><span class="tuning-hz">82.4 Hz</span><span class="tuning-name">Low E (thickest)</span></div>
+                    <div class="tuning-step"><span class="tuning-num">5</span><span class="tuning-note">A</span><span class="tuning-hz">110.0 Hz</span><span class="tuning-name">A string</span></div>
+                    <div class="tuning-step"><span class="tuning-num">4</span><span class="tuning-note">D</span><span class="tuning-hz">146.8 Hz</span><span class="tuning-name">D string</span></div>
+                    <div class="tuning-step"><span class="tuning-num">3</span><span class="tuning-note">G</span><span class="tuning-hz">196.0 Hz</span><span class="tuning-name">G string</span></div>
+                    <div class="tuning-step"><span class="tuning-num">2</span><span class="tuning-note">B</span><span class="tuning-hz">246.9 Hz</span><span class="tuning-name">B string</span></div>
+                    <div class="tuning-step"><span class="tuning-num">1</span><span class="tuning-note">E</span><span class="tuning-hz">329.6 Hz</span><span class="tuning-name">High E (thinnest)</span></div>
+                </div>
+                <div class="help-card-text" style="margin-top:14px;">
+                    A simple way to remember the order: <strong>E-A-D-G-B-E</strong> — "Eddie Ate Dynamite, Good Bye Eddie."
+                </div>
+            </div>
+
+            <div class="help-card">
+                <div class="help-card-title">Step-by-Step Tuning</div>
+                <ol class="help-steps">
+                    <li>Go to the <strong>Tuner</strong> tab and tap <strong>Power On</strong>. Allow microphone access when prompted.</li>
+                    <li>Pluck one string at a time and let it ring clearly — avoid strumming all strings together.</li>
+                    <li>Watch the needle. If it leans <strong>left</strong>, your string is <strong>flat</strong> (too low) — tighten the tuning peg slightly.</li>
+                    <li>If it leans <strong>right</strong>, your string is <strong>sharp</strong> (too high) — loosen the peg slightly.</li>
+                    <li>When the needle centers and the dot turns <strong>green</strong>, that string is in tune.</li>
+                    <li>Repeat for all 6 strings, starting from the Low E.</li>
+                    <li>Tune through all strings twice — tightening one string can slightly shift others.</li>
+                </ol>
+            </div>
+
+            <div class="help-card">
+                <div class="help-card-title">Tuning Tips</div>
+                <ul class="help-steps">
+                    <li>Tune in a quiet room when possible — use the Mic Sensitivity slider if background noise interferes.</li>
+                    <li>New strings stretch and go out of tune faster — this is normal for the first few days.</li>
+                    <li>Never force a tuning peg — if a string feels very tight and won't reach pitch, you may be tuning the wrong direction.</li>
+                    <li>Use the <strong>String Reference Tones</strong> buttons to hear what each string should sound like.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ── Chord Chart pane ── -->
+        <div class="help-pane" id="paneChords">
+            <div class="help-card">
+                <div class="help-card-title">Open Chord Chart</div>
+                <div class="help-card-text">Tap any diagram to hear how that chord's root note sounds. Numbers show which finger to use.</div>
+            </div>
+            <div class="chord-grid" id="chordGrid"></div>
+        </div>
+
+        <!-- ── FAQ pane ── -->
+        <div class="help-pane" id="paneFaq">
+            <div class="help-card">
+                <div class="help-card-title">Frequently Asked Questions</div>
+            </div>
+            <div class="faq-list" id="faqList"></div>
+        </div>
+
+        <div class="view-footer">
+            Rock Strike Guitars &copy; 2026 &nbsp;·&nbsp; Powered by <span class="tsl">ROCK STRIKE LABS</span>
+        </div>
+    </div>
+
+    <!-- Bottom nav -->
+    <div class="bottom-nav">
+        <button class="nav-tab active" id="tabTuner" onclick="switchView('tuner')">
+            <span class="nav-icon">🎸</span>
+            Tuner
+        </button>
+        <button class="nav-tab" id="tabMetro" onclick="switchView('metro')" style="position:relative;">
+            <span class="nav-icon">🥁</span>
+            Metronome
+            <span class="metro-live" id="metroLiveDot"></span>
+        </button>
+        <button class="nav-tab" id="tabHelp" onclick="switchView('help')">
+            <span class="nav-icon">📖</span>
+            Help
+        </button>
+    </div>
+
+</div>
+
+<!-- ═══════════════ PRICING MODAL ═══════════════ -->
+<div class="modal-overlay" id="pricingModal">
+    <div class="modal-card">
+        <div style="text-align:center;margin-bottom:20px;">
+            <div style="font-size:20px;font-weight:800;color:var(--accent);text-transform:uppercase;">Rock Strike Guitars</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;">Pro Toolkit — Choose Your Plan</div>
+        </div>
+        <div class="tier-row" style="margin-bottom:16px;">
+            <div class="tier-box tier-free">
+                <div class="tier-name">Free</div>
+                <div class="tier-price" style="color:var(--muted)">$0</div>
+                <div class="tier-sub">Always free</div>
+                <div class="tier-feat">✓ <span>Chromatic tuner</span><br>✓ <span>4 themes</span><br>✓ <span>4/4 metronome</span><br>✓ <span>Reference tones</span><br>✗ Pro themes<br>✗ All time sigs<br>✗ Electric mode</div>
+            </div>
+            <div class="tier-box tier-pro">
+                <div class="tier-name">Pro</div>
+                <div class="tier-price">$14.99</div>
+                <div class="tier-sub">One-time · Lifetime</div>
+                <div class="tier-feat">✓ <span>Everything Free</span><br>✓ <span>11 Pro themes</span><br>✓ <span>All time sigs</span><br>✓ <span>Electric / Line-In</span><br>✓ <span>Custom beat sounds</span><br>✓ <span>Future features</span></div>
+                <button class="upgrade-btn" onclick="handleUpgrade()">Upgrade — $14.99</button>
+            </div>
+        </div>
+        <div class="what-you-get">
+            <div class="what-title">What's included in Pro</div>
+            <div class="what-list">
+                ✓ <span>Real chromatic pitch detection</span><br>
+                ✓ <span>Sample-accurate metronome — zero drift</span><br>
+                ✓ <span>7 synthesized beat sounds</span><br>
+                ✓ <span>11 Pro themes</span><br>
+                ✓ <span>All time signatures</span><br>
+                ✓ <span>Acoustic & Electric / Line-In modes</span><br>
+                ✓ <span>366 daily scripture verses</span><br>
+                ✓ <span>All future updates free</span>
+            </div>
+        </div>
+        <div class="guarantee-note">✝ Faith-based platform &nbsp;·&nbsp; 30-Day Money-Back Guarantee<br>One-Time Payment &nbsp;·&nbsp; No Subscriptions</div>
+        <button class="modal-close-btn" onclick="closePricing()">Back to Toolkit</button>
+    </div>
+</div>
+
+<!-- ═══════════════ ACCOUNT MODAL ═══════════════ -->
+<div class="modal-overlay" id="accountModal">
+    <div class="modal-card">
+        <div class="avatar-wrap">
+            <div class="avatar-img" id="avatarEl">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </div>
+            <label class="cam-btn" for="avatarFile">
+                <svg viewBox="0 0 24 24"><path d="M4 4h3l2-2h6l2 2h3c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 3c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 2c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3z"/></svg>
+            </label>
+            <input type="file" id="avatarFile" accept="image/*" onchange="loadAvatar(event)">
+        </div>
+        <div class="modal-name" id="modalName">Verified Pro User</div>
+        <div class="modal-sub">Rock Strike Guitars — Pro Toolkit</div>
+        <div class="status-msg" id="statusMsg" style="display:none;"></div>
+
+        <div class="modal-sec">Your Profile</div>
+        <input type="text"  class="modal-input" id="nameInput"   placeholder="Full Name"         oninput="updateName(this.value)">
+        <input type="email" class="modal-input" id="emailInput"  placeholder="Email Address" oninput="validateEmail(this.value)">
+        <div id="emailMsg" style="font-size:11px;margin:-6px 0 8px 4px;display:none;"></div>
+        <div class="input-row">
+            <select id="instrumentSelect" onchange="saveField('instrument',this.value)">
+                <option value="">Instrument</option>
+                <option>Electric Guitar</option>
+                <option>Acoustic Guitar</option>
+                <option>Bass Guitar</option>
+                <option>12-String Guitar</option>
+                <option>Classical Guitar</option>
+            </select>
+            <select id="skillSelect" onchange="saveField('skill',this.value)">
+                <option value="">Skill Level</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+                <option>Professional</option>
+            </select>
+        </div>
+        <div class="input-row">
+            <select id="genreSelect" onchange="saveField('genre',this.value)">
+                <option value="">Genre</option>
+                <option>Christian Rock</option>
+                <option>Worship</option>
+                <option>Blues Rock</option>
+                <option>Hard Rock</option>
+                <option>Metal</option>
+                <option>Country</option>
+                <option>Acoustic / Folk</option>
+            </select>
+            <select id="goalSelect" onchange="saveField('goal',this.value)">
+                <option value="">My Goal</option>
+                <option>Worship Team</option>
+                <option>Play Live Shows</option>
+                <option>Record Music</option>
+                <option>Personal Growth</option>
+                <option>Teach Others</option>
+            </select>
+        </div>
+        <input type="text" class="modal-input" id="bandInput" placeholder="Church / Band Name (optional)" oninput="saveField('band',this.value)">
+
+        <div class="modal-sec">Your Plan</div>
+        <div class="tier-row" style="margin-bottom:14px;">
+            <div class="tier-box tier-free" id="planFreeBox">
+                <div class="tier-name">Free</div>
+                <div class="tier-price" style="color:var(--muted);font-size:18px;">$0</div>
+                <div class="tier-sub">Always free</div>
+                <div class="tier-feat">✓ <span>Tuner</span><br>✓ <span>4 themes</span><br>✓ <span>4/4 metro</span><br>✗ Pro themes<br>✗ Beat sounds</div>
+            </div>
+            <div class="tier-box tier-pro" id="planProBox">
+                <div class="tier-name">Pro</div>
+                <div class="tier-price" style="font-size:18px;">$14.99</div>
+                <div class="tier-sub">One-time · Lifetime</div>
+                <div class="tier-feat">✓ <span>Everything</span><br>✓ <span>11 Pro themes</span><br>✓ <span>All time sigs</span><br>✓ <span>Beat sounds</span><br>✓ <span>Future updates</span></div>
+                <button class="upgrade-btn" onclick="closeAccount();openPricing();">Upgrade Now →</button>
+            </div>
+        </div>
+
+        <div class="modal-sec">License Details</div>
+        <div class="meta-box">
+            <div class="meta-row"><span class="meta-k">Product</span><span class="meta-v">Rock Strike Guitars Pro</span></div>
+            <div class="meta-row"><span class="meta-k">Engine</span><span class="meta-v">Rock Strike Labs v4</span></div>
+            <div class="meta-row"><span class="meta-k">License</span><span class="meta-v">RSL-LIFETIME-PRO</span></div>
+            <div class="meta-row"><span class="meta-k">Plan</span><span class="meta-v" id="planLabel">Lifetime Pro</span></div>
+            <div class="meta-row"><span class="meta-k">Status</span><span class="meta-v" id="metaStatus" style="color:var(--green)">Active — Paid In Full</span></div>
+        </div>
+
+        <div class="modal-sec">Terms, Disclaimer & Faith Statement</div>
+        <div class="disc-box">
+            <div class="disc-sec">
+                <div class="disc-head">✝ Faith Statement</div>
+                <div class="disc-text">Rock Strike Guitars is a faith-based platform built on Christian values. Our tools and content are created to honor God and serve the guitar community. We believe music is a gift from the Lord.</div>
+            </div>
+            <div class="disc-sec">
+                <div class="disc-head">30-Day Money-Back Guarantee</div>
+                <div class="disc-text">All purchases are backed by a 30-day refund guarantee. Contact rockstrikelabs@gmail.com within 30 days. Upon approval, access remains active during a brief grace period before the license is deactivated.</div>
+            </div>
+            <div class="disc-sec">
+                <div class="disc-head">Instrument & Equipment Safety</div>
+                <div class="disc-text">Rock Strike Labs and Rock Strike Guitars assume no liability for damage to instruments or equipment from use of this tuning tool. Always tune gradually. Over-tightening strings can cause breakage or neck stress.</div>
+            </div>
+            <div class="disc-sec">
+                <div class="disc-head">Accuracy Disclaimer</div>
+                <div class="disc-text">This tuner uses real-time microphone input and autocorrelation pitch detection. Accuracy may vary based on device microphone quality and ambient noise. Intended as a practice aid.</div>
+            </div>
+            <div class="disc-sec">
+                <div class="disc-head">Intellectual Property</div>
+                <div class="disc-text">All software, design, and content are the exclusive property of Rock Strike Labs &copy; 2026. Unauthorized reproduction or resale is strictly prohibited.</div>
+            </div>
+        </div>
+
+        <div class="dev-box">
+            <div class="dev-title">🛠 Demo Controls — Remove Before Launch</div>
+            <div class="dev-grid">
+                <button class="dev-btn" onclick="simRefund('pending')">Simulate Refund</button>
+                <button class="dev-btn" onclick="simRefund('expired')">Expire License</button>
+            </div>
+            <div class="dev-grid">
+                <button class="dev-btn g" onclick="setTier('pro')">Set Pro Tier</button>
+                <button class="dev-btn" onclick="setTier('free')">Set Free Tier</button>
+            </div>
+        </div>
+
+        <button class="modal-close-btn" onclick="closeAccount()">Back to Pro Tools</button>
+    </div>
+</div>
+
+<script>
+'use strict';
+
+// ── Audio ─────────────────────────────────────────────────────
+let ctx = null;
+function getCtx() { if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)(); return ctx; }
+async function resumeCtx() { const c = getCtx(); if (c.state === 'suspended') await c.resume(); return c; }
+
+// ── Scripture ─────────────────────────────────────────────────
+const SCRIPTURES = [
+`"Praise the Lord with the harp; make melody to him with an instrument of ten strings!" <strong>— Psalm 33:2</strong>`,`"Sing to him a new song; play skillfully on the strings, with a loud shout." <strong>— Psalm 33:3</strong>`,`"Make a joyful noise to the Lord, all the earth; break forth into joyous song and sing praises!" <strong>— Psalm 98:4</strong>`,`"Sing praises to the Lord with the lyre, with the lyre and the sound of melody!" <strong>— Psalm 98:5</strong>`,`"Let everything that has breath praise the Lord. Praise the Lord!" <strong>— Psalm 150:6</strong>`,`"Praise him with trumpet sound; praise him with lute and harp!" <strong>— Psalm 150:3</strong>`,`"Praise him with tambourine and dance; praise him with strings and pipe!" <strong>— Psalm 150:4</strong>`,`"Praise him with sounding cymbals; praise him with loud clashing cymbals!" <strong>— Psalm 150:5</strong>`,`"I will sing to the Lord as long as I live; I will sing praise to my God while I have being." <strong>— Psalm 104:33</strong>`,`"Oh sing to the Lord a new song; sing to the Lord, all the earth!" <strong>— Psalm 96:1</strong>`,`"Sing to the Lord, bless his name; tell of his salvation from day to day." <strong>— Psalm 96:2</strong>`,`"Shout for joy to God, all the earth; sing the glory of his name; give to him glorious praise!" <strong>— Psalm 66:1-2</strong>`,`"I will praise the Lord all my life; I will sing praise to my God as long as I live." <strong>— Psalm 146:2</strong>`,`"The Lord is my strength and my song; he has become my salvation." <strong>— Exodus 15:2</strong>`,`"Speaking to one another in psalms and hymns and spiritual songs, singing and making melody to the Lord with your heart." <strong>— Ephesians 5:19</strong>`,`"Let the word of Christ dwell in you richly, teaching and admonishing one another in all wisdom, singing psalms and hymns and spiritual songs." <strong>— Colossians 3:16</strong>`,`"I will sing of the steadfast love of the Lord, forever; with my mouth I will make known your faithfulness to all generations." <strong>— Psalm 89:1</strong>`,`"My heart is steadfast, O God! I will sing and make melody with all my being!" <strong>— Psalm 108:1</strong>`,`"Be filled with the Spirit, addressing one another in psalms and hymns and spiritual songs." <strong>— Ephesians 5:18-19</strong>`,`"Clap your hands, all peoples! Shout to God with loud songs of joy!" <strong>— Psalm 47:1</strong>`,`"God is the King of all the earth; sing praises with a psalm!" <strong>— Psalm 47:7</strong>`,`"I will give thanks to the Lord with my whole heart; I will recount all of your wonderful deeds." <strong>— Psalm 9:1</strong>`,`"It is good to give thanks to the Lord, to sing praises to your name, O Most High." <strong>— Psalm 92:1</strong>`,`"To declare your steadfast love in the morning, and your faithfulness by night, to the music of the lute and the harp." <strong>— Psalm 92:2-3</strong>`,`"Praise the Lord! Praise God in his sanctuary; praise him in his mighty heavens!" <strong>— Psalm 150:1</strong>`,`"Praise him for his mighty deeds; praise him according to his excellent greatness!" <strong>— Psalm 150:2</strong>`,`"Sing aloud to God our strength; shout for joy to the God of Jacob!" <strong>— Psalm 81:1</strong>`,`"Raise a song; sound the tambourine, the sweet lyre with the harp." <strong>— Psalm 81:2</strong>`,`"O Lord, you are my God; I will exalt you; I will praise your name, for you have done wonderful things." <strong>— Isaiah 25:1</strong>`,`"Sing for joy, O heavens, and exult, O earth; break forth, O mountains, into singing!" <strong>— Isaiah 49:13</strong>`,`"The Lord your God is in your midst, a mighty one who will save; he will rejoice over you with loud singing." <strong>— Zephaniah 3:17</strong>`,`"I can do all things through him who strengthens me." <strong>— Philippians 4:13</strong>`,`"The Lord is my light and my salvation; whom shall I fear? The Lord is the stronghold of my life." <strong>— Psalm 27:1</strong>`,`"Be strong and courageous. Do not be frightened, for the Lord your God is with you wherever you go." <strong>— Joshua 1:9</strong>`,`"He gives power to the faint, and to him who has no might he increases strength." <strong>— Isaiah 40:29</strong>`,`"But they who wait for the Lord shall renew their strength; they shall mount up with wings like eagles." <strong>— Isaiah 40:31</strong>`,`"The Lord is my strength and my shield; in him my heart trusts, and I am helped." <strong>— Psalm 28:7</strong>`,`"God is our refuge and strength, a very present help in trouble." <strong>— Psalm 46:1</strong>`,`"Fear not, for I am with you; be not dismayed, for I am your God; I will strengthen you, I will help you." <strong>— Isaiah 41:10</strong>`,`"The Lord is my rock and my fortress and my deliverer, my God, my rock, in whom I take refuge." <strong>— Psalm 18:2</strong>`,`"Finally, be strong in the Lord and in the strength of his might." <strong>— Ephesians 6:10</strong>`,`"It is God who arms me with strength and keeps my way secure." <strong>— Psalm 18:32</strong>`,`"The Lord will fight for you; you need only to be still." <strong>— Exodus 14:14</strong>`,`"Be strong and courageous, and do the work. Do not be afraid, for the Lord God is with you." <strong>— 1 Chronicles 28:20</strong>`,`"Through God we shall do valiantly; it is he who will tread down our foes." <strong>— Psalm 108:13</strong>`,`"My flesh and my heart may fail, but God is the strength of my heart and my portion forever." <strong>— Psalm 73:26</strong>`,`"I love you, O Lord, my strength. The Lord is my rock and my fortress." <strong>— Psalm 18:1-2</strong>`,`"With your help I can advance against a troop; with my God I can scale a wall." <strong>— Psalm 18:29</strong>`,`"In the day of my trouble I call upon you, for you answer me." <strong>— Psalm 86:7</strong>`,`"The Lord gives strength to his people; the Lord blesses his people with peace." <strong>— Psalm 29:11</strong>`,`"For I, the Lord your God, hold your right hand; it is I who say to you, 'Fear not, I am the one who helps you.'" <strong>— Isaiah 41:13</strong>`,`"But the Lord stood by me and strengthened me, so that through me the message might be fully proclaimed." <strong>— 2 Timothy 4:17</strong>`,`"I have set the Lord always before me; because he is at my right hand, I shall not be shaken." <strong>— Psalm 16:8</strong>`,`"Wait for the Lord; be strong, and let your heart take courage; wait for the Lord!" <strong>— Psalm 27:14</strong>`,`"For you equipped me with strength for the battle; you made those who rise against me sink under me." <strong>— Psalm 18:39</strong>`,`"The God of Israel gives power and strength to his people. Praise be to God!" <strong>— Psalm 68:35</strong>`,`"He is my loving God and my fortress, my stronghold and my deliverer, my shield." <strong>— Psalm 144:2</strong>`,`"The Lord is my strength and my defense; he has become my salvation." <strong>— Psalm 118:14</strong>`,`"Be strong in the Lord and in his mighty power." <strong>— Ephesians 6:10</strong>`,`"Trust in the Lord with all your heart, and do not lean on your own understanding." <strong>— Proverbs 3:5</strong>`,`"In all your ways acknowledge him, and he will make straight your paths." <strong>— Proverbs 3:6</strong>`,`"And without faith it is impossible to please him, for whoever would draw near to God must believe that he exists." <strong>— Hebrews 11:6</strong>`,`"Now faith is the assurance of things hoped for, the conviction of things not seen." <strong>— Hebrews 11:1</strong>`,`"For we walk by faith, not by sight." <strong>— 2 Corinthians 5:7</strong>`,`"Commit your way to the Lord; trust in him, and he will act." <strong>— Psalm 37:5</strong>`,`"Blessed is the man who trusts in the Lord, whose trust is the Lord." <strong>— Jeremiah 17:7</strong>`,`"You will keep in perfect peace those whose minds are steadfast, because they trust in you." <strong>— Isaiah 26:3</strong>`,`"Cast your burden on the Lord, and he will sustain you; he will never permit the righteous to be moved." <strong>— Psalm 55:22</strong>`,`"The Lord is good, a stronghold in the day of trouble; he knows those who take refuge in him." <strong>— Nahum 1:7</strong>`,`"Those who trust in the Lord are like Mount Zion, which cannot be moved, but abides forever." <strong>— Psalm 125:1</strong>`,`"Taste and see that the Lord is good! Blessed is the man who takes refuge in him!" <strong>— Psalm 34:8</strong>`,`"When I am afraid, I put my trust in you. In God I trust; I shall not be afraid." <strong>— Psalm 56:3-4</strong>`,`"The Lord is on my side; I will not fear. What can man do to me?" <strong>— Psalm 118:6</strong>`,`"Whoever trusts in the Lord is kept safe." <strong>— Proverbs 29:25</strong>`,`"Blessed are all who take refuge in him." <strong>— Psalm 2:12</strong>`,`"The name of the Lord is a strong tower; the righteous man runs into it and is safe." <strong>— Proverbs 18:10</strong>`,`"Let us hold fast the confession of our hope without wavering, for he who promised is faithful." <strong>— Hebrews 10:23</strong>`,`"For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope." <strong>— Jeremiah 29:11</strong>`,`"And we know that for those who love God all things work together for good." <strong>— Romans 8:28</strong>`,`"Jesus said, 'If you can believe, all things are possible to him who believes.'" <strong>— Mark 9:23</strong>`,`"Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God." <strong>— Philippians 4:6</strong>`,`"And the peace of God, which surpasses all understanding, will guard your hearts and your minds in Christ Jesus." <strong>— Philippians 4:7</strong>`,`"Ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you." <strong>— Matthew 7:7</strong>`,`"If God is for us, who can be against us?" <strong>— Romans 8:31</strong>`,`"For nothing will be impossible with God." <strong>— Luke 1:37</strong>`,`"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning." <strong>— Lamentations 3:22-23</strong>`,`"Great is your faithfulness." <strong>— Lamentations 3:23</strong>`,`"But seek first the kingdom of God and his righteousness, and all these things will be added to you." <strong>— Matthew 6:33</strong>`,`"The Lord is near to all who call on him, to all who call on him in truth." <strong>— Psalm 145:18</strong>`,`"Oh come, let us sing to the Lord; let us make a joyful noise to the rock of our salvation!" <strong>— Psalm 95:1</strong>`,`"Let us come into his presence with thanksgiving; let us make a joyful noise to him with songs of praise!" <strong>— Psalm 95:2</strong>`,`"Oh come, let us worship and bow down; let us kneel before the Lord, our Maker!" <strong>— Psalm 95:6</strong>`,`"Ascribe to the Lord the glory due his name; worship the Lord in the splendor of holiness." <strong>— Psalm 29:2</strong>`,`"Give to the Lord the glory due his name; bring an offering and come before him!" <strong>— 1 Chronicles 16:29</strong>`,`"God is spirit, and those who worship him must worship in spirit and truth." <strong>— John 4:24</strong>`,`"Present your bodies as a living sacrifice, holy and acceptable to God, which is your spiritual worship." <strong>— Romans 12:1</strong>`,`"Through him then let us continually offer up a sacrifice of praise to God, the fruit of lips that acknowledge his name." <strong>— Hebrews 13:15</strong>`,`"Enter his gates with thanksgiving, and his courts with praise! Give thanks to him; bless his name!" <strong>— Psalm 100:4</strong>`,`"Know that the Lord, he is God! It is he who made us, and we are his; we are his people." <strong>— Psalm 100:3</strong>`,`"I will bless the Lord at all times; his praise shall continually be in my mouth." <strong>— Psalm 34:1</strong>`,`"My soul makes its boast in the Lord; let the humble hear and be glad." <strong>— Psalm 34:2</strong>`,`"Oh, magnify the Lord with me, and let us exalt his name together!" <strong>— Psalm 34:3</strong>`,`"Worthy are you, our Lord and God, to receive glory and honor and power, for you created all things." <strong>— Revelation 4:11</strong>`,`"Holy, holy, holy, is the Lord God Almighty, who was and is and is to come!" <strong>— Revelation 4:8</strong>`,`"Worthy is the Lamb who was slain, to receive power and wealth and wisdom and might and honor and glory and blessing!" <strong>— Revelation 5:12</strong>`,`"Not to us, O Lord, not to us, but to your name give glory, for the sake of your steadfast love and your faithfulness!" <strong>— Psalm 115:1</strong>`,`"From the rising of the sun to its setting, the name of the Lord is to be praised!" <strong>— Psalm 113:3</strong>`,`"This is the day that the Lord has made; let us rejoice and be glad in it." <strong>— Psalm 118:24</strong>`,`"The joy of the Lord is your strength." <strong>— Nehemiah 8:10</strong>`,`"Rejoice in the Lord always; again I will say, rejoice." <strong>— Philippians 4:4</strong>`,`"May the God of hope fill you with all joy and peace in believing, so that by the power of the Holy Spirit you may abound in hope." <strong>— Romans 15:13</strong>`,`"Weeping may tarry for the night, but joy comes with the morning." <strong>— Psalm 30:5</strong>`,`"You have turned for me my mourning into dancing; you have loosed my sackcloth and clothed me with gladness." <strong>— Psalm 30:11</strong>`,`"Those who sow in tears shall reap with shouts of joy!" <strong>— Psalm 126:5</strong>`,`"Satisfy us in the morning with your steadfast love, that we may rejoice and be glad all our days." <strong>— Psalm 90:14</strong>`,`"You make known to me the path of life; in your presence there is fullness of joy; at your right hand are pleasures forevermore." <strong>— Psalm 16:11</strong>`,`"Be glad in the Lord, and rejoice, O righteous, and shout for joy, all you upright in heart!" <strong>— Psalm 32:11</strong>`,`"I will greatly rejoice in the Lord; my soul shall exult in my God." <strong>— Isaiah 61:10</strong>`,`"Delight yourself in the Lord, and he will give you the desires of your heart." <strong>— Psalm 37:4</strong>`,`"The Lord has done great things for us; we are glad." <strong>— Psalm 126:3</strong>`,`"Let all who take refuge in you rejoice; let them ever sing for joy." <strong>— Psalm 5:11</strong>`,`"I rejoiced with those who said to me, 'Let us go to the house of the Lord.'" <strong>— Psalm 122:1</strong>`,`"Our heart is glad in him, because we trust in his holy name." <strong>— Psalm 33:21</strong>`,`"The Lord is my shepherd; I shall not want. He makes me lie down in green pastures." <strong>— Psalm 23:1-2</strong>`,`"Even though I walk through the valley of the shadow of death, I will fear no evil, for you are with me." <strong>— Psalm 23:4</strong>`,`"Surely goodness and mercy shall follow me all the days of my life, and I shall dwell in the house of the Lord forever." <strong>— Psalm 23:6</strong>`,`"Light is sown for the righteous, and joy for the upright in heart." <strong>— Psalm 97:11</strong>`,`"For you, O Lord, are my hope, my trust, O Lord, from my youth." <strong>— Psalm 71:5</strong>`,`"Your word is a lamp to my feet and a light to my path." <strong>— Psalm 119:105</strong>`,`"The grass withers, the flower fades, but the word of our God will stand forever." <strong>— Isaiah 40:8</strong>`,`"For the word of God is living and active, sharper than any two-edged sword." <strong>— Hebrews 4:12</strong>`,`"All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness." <strong>— 2 Timothy 3:16</strong>`,`"Heaven and earth will pass away, but my words will not pass away." <strong>— Matthew 24:35</strong>`,`"I have stored up your word in my heart, that I might not sin against you." <strong>— Psalm 119:11</strong>`,`"How sweet are your words to my taste, sweeter than honey to my mouth!" <strong>— Psalm 119:103</strong>`,`"Great peace have those who love your law; nothing can make them stumble." <strong>— Psalm 119:165</strong>`,`"The Lord will guide you continually and satisfy your desire in scorched places." <strong>— Isaiah 58:11</strong>`,`"I will instruct you and teach you in the way you should go; I will counsel you with my eye upon you." <strong>— Psalm 32:8</strong>`,`"The Lord makes firm the steps of the one who delights in him." <strong>— Psalm 37:23</strong>`,`"Show me your ways, Lord, teach me your paths. Guide me in your truth and teach me." <strong>— Psalm 25:4-5</strong>`,`"The heart of man plans his way, but the Lord establishes his steps." <strong>— Proverbs 16:9</strong>`,`"Teach me to do your will, for you are my God! Let your good Spirit lead me on level ground!" <strong>— Psalm 143:10</strong>`,`"If any of you lacks wisdom, let him ask God, who gives generously to all without reproach." <strong>— James 1:5</strong>`,`"Open my eyes, that I may behold wondrous things out of your law." <strong>— Psalm 119:18</strong>`,`"For God so loved the world, that he gave his only Son, that whoever believes in him should not perish but have eternal life." <strong>— John 3:16</strong>`,`"But God shows his love for us in that while we were still sinners, Christ died for us." <strong>— Romans 5:8</strong>`,`"We love because he first loved us." <strong>— 1 John 4:19</strong>`,`"I have loved you with an everlasting love; therefore I have continued my faithfulness to you." <strong>— Jeremiah 31:3</strong>`,`"Neither death nor life will be able to separate us from the love of God that is in Christ Jesus our Lord." <strong>— Romans 8:38-39</strong>`,`"See what kind of love the Father has given to us, that we should be called children of God; and so we are." <strong>— 1 John 3:1</strong>`,`"Give thanks to the Lord, for he is good, for his steadfast love endures forever." <strong>— Psalm 136:1</strong>`,`"How precious is your steadfast love, O God! The children of mankind take refuge in the shadow of your wings." <strong>— Psalm 36:7</strong>`,`"The Lord is compassionate and gracious, slow to anger, abounding in love." <strong>— Psalm 103:8</strong>`,`"As high as the heavens are above the earth, so great is his love for those who fear him." <strong>— Psalm 103:11</strong>`,`"Love is patient, love is kind. It does not envy, it does not boast, it is not proud." <strong>— 1 Corinthians 13:4</strong>`,`"Love never fails." <strong>— 1 Corinthians 13:8</strong>`,`"And now these three remain: faith, hope and love. But the greatest of these is love." <strong>— 1 Corinthians 13:13</strong>`,`"For by grace you have been saved through faith. And this is not your own doing; it is the gift of God." <strong>— Ephesians 2:8</strong>`,`"My grace is sufficient for you, for my power is made perfect in weakness." <strong>— 2 Corinthians 12:9</strong>`,`"The Lord is gracious and merciful, slow to anger and abounding in steadfast love." <strong>— Psalm 145:8</strong>`,`"Because of the Lord's great love we are not consumed, for his compassions never fail." <strong>— Lamentations 3:22</strong>`,`"They are new every morning; great is your faithfulness." <strong>— Lamentations 3:23</strong>`,`"Beloved, let us love one another, for love is from God, and whoever loves has been born of God and knows God." <strong>— 1 John 4:7</strong>`,`"Greater love has no one than this: to lay down one's life for one's friends." <strong>— John 15:13</strong>`,`"As the Father has loved me, so have I loved you. Abide in my love." <strong>— John 15:9</strong>`,`"Put on the full armor of God, so that you can take your stand against the devil's schemes." <strong>— Ephesians 6:11</strong>`,`"Take up the shield of faith, with which you can extinguish all the flaming arrows of the evil one." <strong>— Ephesians 6:16</strong>`,`"For everyone who has been born of God overcomes the world. And this is the victory — our faith." <strong>— 1 John 5:4</strong>`,`"No, in all these things we are more than conquerors through him who loved us." <strong>— Romans 8:37</strong>`,`"Submit yourselves, then, to God. Resist the devil, and he will flee from you." <strong>— James 4:7</strong>`,`"You are from God, little children, and have overcome them, for he who is in you is greater than he who is in the world." <strong>— 1 John 4:4</strong>`,`"But thanks be to God, who gives us the victory through our Lord Jesus Christ." <strong>— 1 Corinthians 15:57</strong>`,`"I press on toward the goal for the prize of the upward call of God in Christ Jesus." <strong>— Philippians 3:14</strong>`,`"Fight the good fight of the faith. Take hold of the eternal life to which you were called." <strong>— 1 Timothy 6:12</strong>`,`"I have fought the good fight, I have finished the race, I have kept the faith." <strong>— 2 Timothy 4:7</strong>`,`"Let us run with endurance the race that is set before us, looking to Jesus, the founder and perfecter of our faith." <strong>— Hebrews 12:1-2</strong>`,`"And let us not grow weary of doing good, for in due season we will reap, if we do not give up." <strong>— Galatians 6:9</strong>`,`"Be watchful, stand firm in the faith, act like men, be strong." <strong>— 1 Corinthians 16:13</strong>`,`"Do not be overcome by evil, but overcome evil with good." <strong>— Romans 12:21</strong>`,`"Arise, shine, for your light has come, and the glory of the Lord rises upon you." <strong>— Isaiah 60:1</strong>`,`"For God gave us a spirit not of fear but of power and love and self-control." <strong>— 2 Timothy 1:7</strong>`,`"The Lord your God is with you, the Mighty Warrior who saves." <strong>— Zephaniah 3:17</strong>`,`"The heavens declare the glory of God, and the sky above proclaims his handiwork." <strong>— Psalm 19:1</strong>`,`"In the beginning, God created the heavens and the earth." <strong>— Genesis 1:1</strong>`,`"The earth is the Lord's, and everything in it, the world, and all who live in it." <strong>— Psalm 24:1</strong>`,`"For by him all things were created, in heaven and on earth, visible and invisible." <strong>— Colossians 1:16</strong>`,`"He is before all things, and in him all things hold together." <strong>— Colossians 1:17</strong>`,`"For from him and through him and to him are all things. To him be glory forever. Amen." <strong>— Romans 11:36</strong>`,`"Great is the Lord, and greatly to be praised, and his greatness is unsearchable." <strong>— Psalm 145:3</strong>`,`"O Lord, our Lord, how majestic is your name in all the earth!" <strong>— Psalm 8:1</strong>`,`"For you formed my inward parts; you knitted me together in my mother's womb. I praise you, for I am fearfully and wonderfully made." <strong>— Psalm 139:13-14</strong>`,`"The Lord is great and greatly to be praised; he is to be feared above all gods." <strong>— Psalm 96:4</strong>`,`"The voice of the Lord is powerful; the voice of the Lord is full of majesty." <strong>— Psalm 29:4</strong>`,`"How great are your works, O Lord! Your thoughts are very deep!" <strong>— Psalm 92:5</strong>`,`"I will remember the deeds of the Lord; yes, I will remember your wonders of old." <strong>— Psalm 77:11</strong>`,`"You are the God who performs miracles; you display your power among the peoples." <strong>— Psalm 77:14</strong>`,`"Be exalted, O God, above the heavens; let your glory be over all the earth." <strong>— Psalm 57:11</strong>`,`"How awesome is the Lord Most High, the great King over all the earth!" <strong>— Psalm 47:2</strong>`,`"Pray without ceasing." <strong>— 1 Thessalonians 5:17</strong>`,`"The prayer of a righteous person is powerful and effective." <strong>— James 5:16</strong>`,`"Call to me and I will answer you, and will tell you great and hidden things that you have not known." <strong>— Jeremiah 33:3</strong>`,`"And whatever you ask in prayer, you will receive, if you have faith." <strong>— Matthew 21:22</strong>`,`"Rejoice always, pray continually, give thanks in all circumstances; for this is God's will for you in Christ Jesus." <strong>— 1 Thessalonians 5:16-18</strong>`,`"Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need." <strong>— Hebrews 4:16</strong>`,`"If my people, who are called by my name, will humble themselves and pray and seek my face, then I will hear from heaven." <strong>— 2 Chronicles 7:14</strong>`,`"Before they call I will answer; while they are still speaking I will hear." <strong>— Isaiah 65:24</strong>`,`"Seek the Lord while he may be found; call on him while he is near." <strong>— Isaiah 55:6</strong>`,`"You will seek me and find me when you seek me with all your heart." <strong>— Jeremiah 29:13</strong>`,`"I waited patiently for the Lord; he turned to me and heard my cry." <strong>— Psalm 40:1</strong>`,`"He put a new song in my mouth, a hymn of praise to our God." <strong>— Psalm 40:3</strong>`,`"Devote yourselves to prayer, being watchful and thankful." <strong>— Colossians 4:2</strong>`,`"Draw near to God, and he will draw near to you." <strong>— James 4:8</strong>`,`"The Lord is near to the brokenhearted and saves the crushed in spirit." <strong>— Psalm 34:18</strong>`,`"He heals the brokenhearted and binds up their wounds." <strong>— Psalm 147:3</strong>`,`"Cast all your anxiety on him because he cares for you." <strong>— 1 Peter 5:7</strong>`,`"I sought the Lord, and he answered me; he delivered me from all my fears." <strong>— Psalm 34:4</strong>`,`"Give thanks to the Lord, for he is good; his love endures forever." <strong>— Psalm 107:1</strong>`,`"Enter his gates with thanksgiving and his courts with praise; give thanks to him and praise his name." <strong>— Psalm 100:4</strong>`,`"Give thanks in all circumstances; for this is God's will for you in Christ Jesus." <strong>— 1 Thessalonians 5:18</strong>`,`"Every good and perfect gift is from above, coming down from the Father of the heavenly lights." <strong>— James 1:17</strong>`,`"Thanks be to God for his indescribable gift!" <strong>— 2 Corinthians 9:15</strong>`,`"Bless the Lord, O my soul, and all that is within me, bless his holy name!" <strong>— Psalm 103:1</strong>`,`"Bless the Lord, O my soul, and forget not all his benefits." <strong>— Psalm 103:2</strong>`,`"Who crowns you with steadfast love and mercy, who satisfies you with good so that your youth is renewed like the eagle's." <strong>— Psalm 103:4-5</strong>`,`"I will praise you, O Lord, with all my heart; before the angels I will sing your praise." <strong>— Psalm 138:1</strong>`,`"When I called, you answered me; you made me bold and stouthearted." <strong>— Psalm 138:3</strong>`,`"The Lord will fulfill his purpose for me; your steadfast love, O Lord, endures forever." <strong>— Psalm 138:8</strong>`,`"Let them thank the Lord for his steadfast love, for his wondrous works to the children of man!" <strong>— Psalm 107:31</strong>`,`"You have made me glad by your work; at the works of your hands I sing for joy." <strong>— Psalm 92:4</strong>`,`"Let the peoples praise you, O God; let all the peoples praise you!" <strong>— Psalm 67:3</strong>`,`"And whatever you do, in word or deed, do everything in the name of the Lord Jesus, giving thanks to God the Father through him." <strong>— Colossians 3:17</strong>`,`"For to us a child is born, to us a son is given; and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace." <strong>— Isaiah 9:6</strong>`,`"The people who walked in darkness have seen a great light; those who dwelt in a land of deep darkness, on them has light shone." <strong>— Isaiah 9:2</strong>`,`"And the Word became flesh and dwelt among us, and we have seen his glory, full of grace and truth." <strong>— John 1:14</strong>`,`"Jesus said, 'I am the way, and the truth, and the life. No one comes to the Father except through me.'" <strong>— John 14:6</strong>`,`"I am the resurrection and the life. Whoever believes in me, though he die, yet shall he live." <strong>— John 11:25</strong>`,`"I am the light of the world. Whoever follows me will not walk in darkness, but will have the light of life." <strong>— John 8:12</strong>`,`"Come to me, all who labor and are heavy laden, and I will give you rest." <strong>— Matthew 11:28</strong>`,`"Peace I leave with you; my peace I give to you. Let not your hearts be troubled, neither let them be afraid." <strong>— John 14:27</strong>`,`"The light shines in the darkness, and the darkness has not overcome it." <strong>— John 1:5</strong>`,`"Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come." <strong>— 2 Corinthians 5:17</strong>`,`"Behold, I am making all things new." <strong>— Revelation 21:5</strong>`,`"He will wipe away every tear from their eyes, and death shall be no more, neither shall there be mourning, nor crying, nor pain anymore." <strong>— Revelation 21:4</strong>`,`"Jesus Christ is the same yesterday and today and forever." <strong>— Hebrews 13:8</strong>`,`"Now to him who is able to do far more abundantly than all that we ask or think, to him be glory forever and ever. Amen." <strong>— Ephesians 3:20-21</strong>`,`"Behold, I stand at the door and knock. If anyone hears my voice and opens the door, I will come in to him." <strong>— Revelation 3:20</strong>`,`"I am the Alpha and the Omega, the first and the last, the beginning and the end." <strong>— Revelation 22:13</strong>`,`"Surely I am coming soon. Amen. Come, Lord Jesus!" <strong>— Revelation 22:20</strong>`,`"The grace of the Lord Jesus be with all. Amen." <strong>— Revelation 22:21</strong>`,`"Sing to the Lord a new song, for he has done marvelous things; his right hand and his holy arm have worked salvation." <strong>— Psalm 98:1</strong>`,`"He who calls you is faithful; he will surely do it." <strong>— 1 Thessalonians 5:24</strong>`,`"Striking Chords for the Lord — every note a prayer, every song a sacrifice of praise." <strong>— Rock Strike Guitars</strong>`,`"Music is the language of the soul reaching toward heaven. Play boldly, play faithfully, play for the King of Kings." <strong>— Rock Strike Guitars</strong>`,`"Your gift of music was placed in you by the Creator of all sound. Use it for His glory." <strong>— Rock Strike Guitars</strong>`,`"Every string you strike is an opportunity to worship. Every chord is a conversation with the Almighty." <strong>— Rock Strike Guitars</strong>`,`"Pick up your guitar. Tune it well. Play it for the Lord. That is enough." <strong>— Rock Strike Guitars</strong>`
+];
+document.getElementById('scripture').innerHTML = SCRIPTURES[Math.floor((Date.now() - new Date(new Date().getFullYear(),0,0)) / 86400000) % SCRIPTURES.length];
+
+// ── View switching ────────────────────────────────────────────
+function switchView(v) {
+    document.getElementById('viewTuner').classList.toggle('active', v === 'tuner');
+    document.getElementById('viewMetro').classList.toggle('active', v === 'metro');
+    document.getElementById('viewHelp').classList.toggle('active', v === 'help');
+    document.getElementById('tabTuner').classList.toggle('active', v === 'tuner');
+    document.getElementById('tabMetro').classList.toggle('active', v === 'metro');
+    document.getElementById('tabHelp').classList.toggle('active', v === 'help');
+}
+
+// ── Help sub-nav (Tuning / Chords / FAQ) ──────────────────────
+function showHelpPane(pane) {
+    document.querySelectorAll('.help-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.help-sub-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('pane' + pane.charAt(0).toUpperCase() + pane.slice(1)).classList.add('active');
+    document.querySelector(`.help-sub-btn[data-pane="${pane}"]`).classList.add('active');
+}
+
+// ── Chord chart — SVG fretboard diagrams ──────────────────────
+// Each chord: frets array index 0-5 = strings E A D G B E (low to high)
+// 'x' = don't play, 0 = open string, 1-4 = fret number
+// fingers array matches frets array, '' = no finger label (open/muted)
+const CHORDS = [
+    { name: 'E',  root: 82.41,  frets: [0,2,2,1,0,0], fingers: ['','2','3','1','',''] },
+    { name: 'A',  root: 110.00, frets: ['x',0,2,2,2,0], fingers: ['','','1','2','3',''] },
+    { name: 'D',  root: 146.83, frets: ['x','x',0,2,3,2], fingers: ['','','','1','3','2'] },
+    { name: 'G',  root: 196.00, frets: [3,2,0,0,0,3], fingers: ['2','1','','','','3'] },
+    { name: 'C',  root: 130.81, frets: ['x',3,2,0,1,0], fingers: ['','3','2','','1',''] },
+    { name: 'Em', root: 82.41,  frets: [0,2,2,0,0,0], fingers: ['','2','3','','',''] },
+    { name: 'Am', root: 110.00, frets: ['x',0,2,2,1,0], fingers: ['','','2','3','1',''] },
+    { name: 'Dm', root: 146.83, frets: ['x','x',0,2,3,1], fingers: ['','','','2','3','1'] }
+];
+
+function buildChordSVG(chord) {
+    const W = 140, H = 160;
+    const stringsX = [20, 44, 68, 92, 116, 140].map(x => x - 20); // 6 strings, evenly spaced within W-40
+    const numStrings = 6, numFrets = 4;
+    const leftPad = 22, topPad = 26, fretW = (W - leftPad*2) / (numStrings - 1), fretH = 26;
+
+    let svg = `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">`;
+    svg += `<rect x="0" y="0" width="${W}" height="${H}" fill="none"/>`;
+
+    // Nut (thick top line) or fret-0 indicator if barred elsewhere — keep simple, always show nut
+    svg += `<rect x="${leftPad}" y="${topPad}" width="${fretW*(numStrings-1)}" height="4" fill="#888"/>`;
+
+    // Fret lines
+    for (let f = 1; f <= numFrets; f++) {
+        const y = topPad + f * fretH;
+        svg += `<line x1="${leftPad}" y1="${y}" x2="${leftPad+fretW*(numStrings-1)}" y2="${y}" stroke="#555" stroke-width="1.5"/>`;
+    }
+    // String lines (vertical)
+    for (let s = 0; s < numStrings; s++) {
+        const x = leftPad + s * fretW;
+        svg += `<line x1="${x}" y1="${topPad}" x2="${x}" y2="${topPad+numFrets*fretH}" stroke="#555" stroke-width="1.5"/>`;
+    }
+
+    // Markers for each string: open circle, X mute, or filled dot with finger number
+    chord.frets.forEach((fret, i) => {
+        const x = leftPad + i * fretW;
+        if (fret === 'x') {
+            svg += `<text x="${x}" y="${topPad-10}" text-anchor="middle" font-size="13" fill="#e53935" font-weight="bold">×</text>`;
+        } else if (fret === 0) {
+            svg += `<circle cx="${x}" cy="${topPad-12}" r="5" fill="none" stroke="#e53935" stroke-width="2"/>`;
+        } else {
+            const y = topPad + (fret - 0.5) * fretH;
+            svg += `<circle cx="${x}" cy="${y}" r="9" fill="#e53935"/>`;
+            const fingerLabel = chord.fingers[i];
+            if (fingerLabel) svg += `<text x="${x}" y="${y+4}" text-anchor="middle" font-size="10" fill="#fff" font-weight="bold">${fingerLabel}</text>`;
+        }
+    });
+
+    svg += `</svg>`;
+    return svg;
+}
+
+function buildChordChart() {
+    const grid = document.getElementById('chordGrid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    CHORDS.forEach(chord => {
+        const card = document.createElement('div');
+        card.className = 'chord-card';
+        card.innerHTML = `<div class="chord-name">${chord.name}</div><div class="chord-svg-wrap">${buildChordSVG(chord)}</div>`;
+        card.onclick = () => playTone(chord.root);
+        grid.appendChild(card);
+    });
+}
+
+// ── FAQ accordion ──────────────────────────────────────────────
+const FAQS = [
+    { q: 'Why does the tuner need microphone access?', a: 'The tuner listens to your guitar through your device microphone to detect pitch in real time. No audio is recorded, saved, or sent anywhere — it is processed instantly on your device and discarded.' },
+    { q: 'The tuner needs a secure connection — what does that mean?', a: 'Browsers only allow microphone access over secure https:// connections. If you opened this as a local file instead of the live website link, the tuner will show "offline." Always use the official link to access it.' },
+    { q: 'Why is the note display jumping around?', a: 'Background noise can confuse pitch detection. Try lowering the Mic Sensitivity slider on the Tuner tab, find a quieter spot, or move closer to the microphone.' },
+    { q: 'What is the difference between Acoustic and Electric mode?', a: 'Acoustic mode applies a filter tuned for the natural frequency range of an acoustic guitar through a built-in mic. Electric / Line-In mode is unfiltered, better suited for electric guitars or direct line-in input. Electric mode is a Pro feature.' },
+    { q: 'What comes with the free version?', a: 'Free includes the chromatic tuner, 4 themes, standard 4/4 metronome with click sound, string reference tones, the chord chart, and this help guide.' },
+    { q: 'What do I get with Pro?', a: 'Pro unlocks 11 additional themes, all time signatures, custom beat sounds (Kick, Snare, Wood, Cowbell, Rimshot, Hi-Hat), rhythm subdivisions (8th, 16th, triplets, gallop, shuffle), and Electric / Line-In tuner mode. It is a one-time $14.99 payment — no subscription.' },
+    { q: 'Is this a subscription?', a: 'No. Pro is a single one-time payment of $14.99 that unlocks all current and future Pro features permanently.' },
+    { q: 'What is a gallop rhythm?', a: 'A gallop is a long-short-short rhythmic pattern within each beat, common in metal and rock — it sounds like "DUM-da-da, DUM-da-da." Reverse gallop flips it to short-short-long, "da-da-DUM."' },
+    { q: 'How do I report a problem or ask a question?', a: 'Tap the Support button at the top of the screen, or email <strong>rockstrikelabs@gmail.com</strong> directly. We read every message.' },
+    { q: 'Can I get a refund?', a: 'Yes — all Pro purchases include a 30-day money-back guarantee. Contact rockstrikelabs@gmail.com within 30 days of purchase.' }
+];
+
+function buildFAQ() {
+    const list = document.getElementById('faqList');
+    if (!list) return;
+    list.innerHTML = '';
+    FAQS.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'faq-item';
+        div.innerHTML = `
+            <div class="faq-q" onclick="toggleFAQ(${i})">
+                <span>${item.q}</span>
+                <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">${item.a}</div>`;
+        list.appendChild(div);
+    });
+}
+
+function toggleFAQ(i) {
+    const items = document.querySelectorAll('.faq-item');
+    items[i].classList.toggle('open');
+}
+
+// ── Tier state ────────────────────────────────────────────────
+let currentTier = 'pro';
+const PRO_SKINS = ['skin-overdrive','skin-sunburst','skin-gothic','skin-synthwave','skin-platinum','skin-stealth','skin-cyberpunk','skin-royal','skin-sanctuary','skin-frost','skin-acid'];
+
+function setTier(t) {
+    currentTier = t;
+    if (t !== 'pro') {
+        subdivision = 'quarter';
+        const sel = document.getElementById('subdivSelect');
+        if (sel) sel.value = 'quarter';
+    }
+    updateStatusMsg();
+    updatePlanBoxes();
+    buildBeatDots();
+    if (typeof resetPractice === 'function') resetPractice();
+    document.getElementById('metaStatus').textContent = t === 'pro' ? 'Active — Paid In Full' : 'Free Tier';
+    document.getElementById('metaStatus').style.color  = t === 'pro' ? 'var(--green)' : 'var(--muted)';
+    document.getElementById('planLabel').textContent   = t === 'pro' ? 'Lifetime Pro' : 'Free';
+}
+
+function updatePlanBoxes() {
+    const fb = document.getElementById('planFreeBox');
+    const pb = document.getElementById('planProBox');
+    if (currentTier === 'pro') {
+        pb.style.outline = '2px solid var(--green)'; pb.style.opacity = '1';
+        fb.style.outline = 'none'; fb.style.opacity = '0.4';
+    } else {
+        fb.style.outline = '2px solid var(--btn-border)'; fb.style.opacity = '1';
+        pb.style.outline = 'none'; pb.style.opacity = '0.6';
+    }
+}
+
+function updateStatusMsg() {
+    const el = document.getElementById('statusMsg');
+    if (!el) return;
+    if (currentTier === 'pro') {
+        el.className = 'status-msg pro';
+        el.innerHTML = '✓ &nbsp;Lifetime Pro — All features unlocked.';
+    } else if (currentTier === 'pending') {
+        el.className = 'status-msg amber';
+        el.innerHTML = '⚠ &nbsp;Refund in progress — access active during grace period.';
+    } else {
+        el.className = 'status-msg free';
+        el.innerHTML = 'Free Tier &nbsp;·&nbsp; <a href="#" onclick="closeAccount();openPricing();return false;">Upgrade to Pro — $14.99 →</a>';
+    }
+    el.style.display = 'block';
+}
+
+// ── DOMContentLoaded ──────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', () => {
+    ['name','email','instrument','skill','genre','goal','band'].forEach(f => {
+        try {
+            const v = localStorage.getItem('rsg_' + f); if (!v) return;
+            const el = document.getElementById(f === 'name' ? 'nameInput' : f === 'email' ? 'emailInput' : f === 'band' ? 'bandInput' : f + 'Select');
+            if (el) el.value = v;
+            if (f === 'name') applyName(v);
+        } catch(e) {}
+    });
+    try { const t = localStorage.getItem('rsg_tier'); if (t) currentTier = t; } catch(e) {}
+    try {
+        const sv = localStorage.getItem('rsg_sensitivity');
+        const sliderVal = sv || '3';
+        document.getElementById('sensSlider').value = sliderVal;
+        setSensitivity(sliderVal);
+    } catch(e) {}
+    buildBeatDots();
+    buildChordChart();
+    buildFAQ();
+    updateStatusMsg();
+    updatePlanBoxes();
+});
+
+// ── Profile ───────────────────────────────────────────────────
+function validateEmail(v) {
+    const msg = document.getElementById('emailMsg');
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    if (v.trim() === '') {
+        msg.style.display = 'none';
+        return;
+    }
+    if (valid) {
+        msg.textContent = '✓ Email looks good!';
+        msg.style.color = 'var(--green)';
+        msg.style.display = 'block';
+        saveField('email', v.trim());
+    } else {
+        msg.textContent = '✗ Please enter a valid email — example: name@gmail.com';
+        msg.style.color = 'var(--accent)';
+        msg.style.display = 'block';
+    }
+}
+function saveField(k, v) { try { localStorage.setItem('rsg_' + k, v); } catch(e) {} }
+function updateName(v) { const n = v.trim(); saveField('name', n); applyName(n); }
+function applyName(n) {
+    document.getElementById('modalName').textContent = n ? `Welcome, ${n}!` : 'Verified Pro User';
+    document.getElementById('brandSub').textContent  = n ? `Welcome back, ${n}!` : 'Christian Rock Guitar Pro Toolkit';
+}
+function loadAvatar(e) {
+    const f = e.target.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = ev => { document.getElementById('avatarEl').innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`; };
+    r.readAsDataURL(f);
+}
+
+// ── Modals ────────────────────────────────────────────────────
+function openPricing()  { document.getElementById('pricingModal').style.display  = 'block'; }
+function closePricing() { document.getElementById('pricingModal').style.display  = 'none';  }
+function openAccount()  { updatePlanBoxes(); document.getElementById('accountModal').style.display = 'block'; }
+function closeAccount() { document.getElementById('accountModal').style.display  = 'none';  }
+function openLock()     { document.getElementById('lockOverlay').style.display   = 'flex';  }
+function closeLock()    { document.getElementById('lockOverlay').style.display   = 'none';  }
+
+function handleUpgrade() {
+    window.open('https://rockstrike.gumroad.com/l/kenkdg', '_blank');
+}
+
+// ── Skin ──────────────────────────────────────────────────────
+let lastFreeSkin = '';
+function handleSkinChange() {
+    const val = document.getElementById('skinSelect').value;
+    if (PRO_SKINS.includes(val) && currentTier !== 'pro') {
+        document.getElementById('skinSelect').value = lastFreeSkin;
+        openLock(); return;
+    }
+    lastFreeSkin = PRO_SKINS.includes(val) ? lastFreeSkin : val;
+    document.body.className = val;
+}
+
+// ── Refund demo ───────────────────────────────────────────────
+function simRefund(state) {
+    if (state === 'pending') {
+        currentTier = 'pending';
+        const exp = new Date(); exp.setDate(exp.getDate() + 3);
+        const es = exp.toLocaleDateString('en-US',{month:'2-digit',day:'2-digit',year:'numeric'});
+        const b = document.getElementById('refundBanner');
+        b.textContent = `⚠ Refund initiated. Your Pro access remains active until ${es}.`;
+        b.style.display = 'block';
+        document.getElementById('metaStatus').textContent = 'Refund Pending';
+        document.getElementById('metaStatus').style.color = 'var(--amber)';
+        updateStatusMsg(); closeAccount();
+    } else {
+        currentTier = 'free'; stopTuner(); stopMetro();
+        document.getElementById('lockoutScreen').style.display = 'flex';
+        closeAccount();
+    }
+}
+function resetState() {
+    currentTier = 'pro';
+    document.getElementById('lockoutScreen').style.display = 'none';
+    document.getElementById('refundBanner').style.display  = 'none';
+    document.getElementById('metaStatus').textContent = 'Active — Paid In Full';
+    document.getElementById('metaStatus').style.color = 'var(--green)';
+    document.getElementById('planLabel').textContent  = 'Lifetime Pro';
+    updateStatusMsg(); updatePlanBoxes();
+}
+
+// ── Reference tones ───────────────────────────────────────────
+let refOscs = [];
+let refCompressor = null;
+let refMakeupGain = null;
+
+function getCompressor(c) {
+    // A compressor + makeup gain raises perceived loudness without clipping.
+    // Previous settings (ratio 8, threshold -18) were too aggressive and
+    // squashed the signal back down — fixed with a gentler ratio and an
+    // explicit makeup gain stage after the compressor to actually boost output.
+    if (!refCompressor) {
+        refCompressor = c.createDynamicsCompressor();
+        refCompressor.threshold.value = -28;
+        refCompressor.knee.value = 30;
+        refCompressor.ratio.value = 3.5;
+        refCompressor.attack.value = 0.003;
+        refCompressor.release.value = 0.2;
+
+        refMakeupGain = c.createGain();
+        refMakeupGain.gain.value = 2.4;  // makeup gain — boosts everything after compression
+
+        refCompressor.connect(refMakeupGain);
+        refMakeupGain.connect(c.destination);
+    }
+    return refCompressor;
+}
+
+async function playTone(freq) {
+    const c = await resumeCtx();
+    refOscs.forEach(o => { try { o.stop(); } catch(e){} });
+    refOscs = [];
+    const comp = getCompressor(c);
+
+    // Low strings (E, A, D) sound much quieter to the human ear than
+    // high strings at equal gain. Rather than pushing single-oscillator
+    // gain past 1.0 (which clips/distorts), we layer 3 harmonics — the
+    // fundamental plus 2 overtones — through a compressor. This is how
+    // real instruments achieve perceived loudness: harmonic richness,
+    // not just raw amplitude.
+    let baseVol = 0.8;                       // base for G, B, high E
+    if (freq <= 90)       baseVol = 1.3;      // Low E — strongest boost
+    else if (freq <= 120) baseVol = 1.2;      // A
+    else if (freq <= 150) baseVol = 1.0;      // D
+
+    const harmonics = [
+        { mult: 1, vol: baseVol,        type: 'triangle' }, // fundamental
+        { mult: 2, vol: baseVol * 0.6,  type: 'sine' },     // octave
+        { mult: 3, vol: baseVol * 0.35, type: 'sine' }       // fifth above octave
+    ];
+
+    harmonics.forEach(h => {
+        const o = c.createOscillator();
+        const g = c.createGain();
+        o.type = h.type;
+        o.frequency.value = freq * h.mult;
+        g.gain.setValueAtTime(0.0001, c.currentTime);
+        g.gain.exponentialRampToValueAtTime(h.vol, c.currentTime + 0.02);
+        g.gain.setValueAtTime(h.vol, c.currentTime + 0.9);
+        g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + 1.6);
+        o.connect(g); g.connect(comp);
+        o.start(); o.stop(c.currentTime + 1.6);
+        refOscs.push(o);
+    });
+}
+
+// ── Tuner ─────────────────────────────────────────────────────
+let tunerOn = false, analyser = null, micSrc = null, inputMode = 'acoustic';
+const NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+
+// Sensitivity: higher threshold = less sensitive to quiet background noise.
+// Range 0.004 (very sensitive, picks up quiet rooms) to 0.035 (only loud, close signal)
+// Default lowered significantly — original threshold was too strict and caused
+// the tuner to show no reading at all for normal speaking/playing volume.
+let noiseThreshold = 0.006;
+let pitchHistory = [];          // recent pitch readings for smoothing
+const SMOOTH_WINDOW = 4;        // average over last N readings to reduce jitter
+
+function setSensitivity(val) {
+    // Slider is 1 (most sensitive) to 10 (least sensitive)
+    noiseThreshold = 0.004 + (val / 10) * 0.031;
+    try { localStorage.setItem('rsg_sensitivity', val); } catch(e) {}
+    document.getElementById('sensVal').textContent = sensitivityLabel(val);
+}
+
+function sensitivityLabel(val) {
+    if (val <= 3) return 'High (quiet room)';
+    if (val <= 6) return 'Medium';
+    return 'Low (noisy room)';
+}
+
+async function toggleTuner() { tunerOn ? stopTuner() : await startTuner(); }
+
+async function startTuner() {
+    const lbl = document.getElementById('centsLabel');
+    lbl.textContent = 'Requesting microphone…';
+    lbl.style.color = 'var(--muted)';
+
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        lbl.textContent = 'Mic not supported on this browser/page';
+        lbl.style.color = 'var(--accent)';
+        alert('Microphone access is not available.\n\nThis usually means the page is not loaded over a secure https:// connection, or your browser does not support microphone input.\n\nMake sure you are using the live rockstrikeguitars link, not a local file.');
+        return;
+    }
+
+    try {
+        const c = await resumeCtx();
+        const stream = await navigator.mediaDevices.getUserMedia({
+            audio: {
+                echoCancellation: false,
+                noiseSuppression: false,
+                autoGainControl: false
+            },
+            video: false
+        });
+        analyser = c.createAnalyser(); analyser.fftSize = 2048;
+        micSrc = c.createMediaStreamSource(stream);
+        if (inputMode === 'acoustic') {
+            const f = c.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 900;
+            micSrc.connect(f); f.connect(analyser);
+        } else { micSrc.connect(analyser); }
+        tunerOn = true;
+        document.getElementById('powerBtn').textContent = 'Power Off';
+        document.getElementById('powerBtn').classList.add('on');
+        lbl.textContent = 'Detecting…';
+        lbl.style.color = 'var(--muted)';
+        pitchHistory = [];
+        pitchLoop();
+    } catch(e) {
+        let msg = 'Microphone access failed.\n\n';
+        if (e.name === 'NotAllowedError') {
+            msg += 'Permission was denied. Go to your browser settings and allow microphone access for this site, then reload the page.';
+        } else if (e.name === 'NotFoundError') {
+            msg += 'No microphone was found on this device.';
+        } else if (e.name === 'NotReadableError') {
+            msg += 'Your microphone is already being used by another app. Close other apps using the mic and try again.';
+        } else if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
+            msg += 'This page must be loaded over a secure https:// connection for microphone access to work.';
+        } else {
+            msg += 'Error: ' + (e.message || e.name || 'Unknown error') + '\n\nTry reloading the page.';
+        }
+        alert(msg);
+        lbl.textContent = 'Tuner offline — mic error';
+        lbl.style.color = 'var(--accent)';
+        tunerOn = false;
+        document.getElementById('powerBtn').textContent = 'Power On';
+        document.getElementById('powerBtn').classList.remove('on');
+    }
+}
+
+function stopTuner() {
+    tunerOn = false;
+    if (micSrc) { try { micSrc.mediaStream.getTracks().forEach(t => t.stop()); } catch(e){} micSrc = null; }
+    document.getElementById('powerBtn').textContent = 'Power On';
+    document.getElementById('powerBtn').classList.remove('on');
+    document.getElementById('noteDisplay').textContent = '—';
+    document.getElementById('hzDisplay').textContent   = '— Hz';
+    document.getElementById('needle').style.transform  = 'translateX(-50%) rotate(0deg)';
+    document.getElementById('inTuneDot').classList.remove('lit');
+    document.getElementById('centsLabel').textContent  = 'Tuner offline';
+    document.getElementById('centsLabel').style.color  = 'var(--muted)';
+}
+
+function toggleMode() {
+    if (currentTier !== 'pro' && inputMode === 'acoustic') { openLock(); return; }
+    inputMode = inputMode === 'acoustic' ? 'electric' : 'acoustic';
+    document.getElementById('modeBtn').textContent = inputMode === 'acoustic' ? 'Acoustic' : 'Electric / Line-In';
+    if (tunerOn) { stopTuner(); startTuner(); }
+}
+
+function pitchLoop() {
+    if (!tunerOn) return;
+    const buf = new Float32Array(analyser.fftSize);
+    analyser.getFloatTimeDomainData(buf);
+    const rawPitch = autoCorrelate(buf, getCtx().sampleRate);
+    const dot = document.getElementById('inTuneDot');
+    const lbl = document.getElementById('centsLabel');
+
+    // Smooth the pitch reading over the last few frames so a single
+    // background noise spike doesn't cause the note display to jump around.
+    let pitch = -1;
+    if (rawPitch > 0) {
+        pitchHistory.push(rawPitch);
+        if (pitchHistory.length > SMOOTH_WINDOW) pitchHistory.shift();
+        pitch = pitchHistory.reduce((a,b) => a+b, 0) / pitchHistory.length;
+    } else {
+        pitchHistory = [];
+    }
+
+    if (pitch > 0) {
+        document.getElementById('hzDisplay').textContent = pitch.toFixed(2) + ' Hz';
+        const noteIdx = Math.round(12 * Math.log2(pitch / 440)) + 69;
+        const note = NOTES[((noteIdx % 12) + 12) % 12];
+        const expected = 440 * Math.pow(2, (noteIdx - 69) / 12);
+        let cents = Math.round(1200 * Math.log2(pitch / expected));
+        cents = Math.max(-50, Math.min(50, cents));
+        document.getElementById('noteDisplay').textContent = note;
+        document.getElementById('needle').style.transform = `translateX(-50%) rotate(${cents * 1.4}deg)`;
+        if (Math.abs(cents) <= 2) {
+            if (!dot.classList.contains('lit')) { dot.classList.add('lit'); beep(880, 0.04, 0.07); }
+            lbl.textContent = 'In tune ✓'; lbl.style.color = 'var(--green)';
+        } else {
+            dot.classList.remove('lit');
+            lbl.textContent = cents > 0 ? `+${cents} cents sharp` : `${cents} cents flat`;
+            lbl.style.color = 'var(--accent)';
+        }
+    } else {
+        document.getElementById('needle').style.transform = 'translateX(-50%) rotate(0deg)';
+        dot.classList.remove('lit');
+    }
+    requestAnimationFrame(pitchLoop);
+}
+
+function beep(freq, vol, dur) {
+    const c = getCtx(), o = c.createOscillator(), g = c.createGain();
+    o.frequency.value = freq; o.type = 'sine';
+    g.gain.setValueAtTime(vol, c.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + dur);
+    o.connect(g); g.connect(c.destination);
+    o.start(); o.stop(c.currentTime + dur);
+}
+
+function autoCorrelate(buf, sr) {
+    let SIZE = buf.length, rms = 0;
+    for (let i = 0; i < SIZE; i++) rms += buf[i] * buf[i];
+    if (Math.sqrt(rms / SIZE) < noiseThreshold) return -1;
+    let r1 = 0, r2 = SIZE - 1;
+    for (let i = 0; i < SIZE / 2; i++) { if (Math.abs(buf[i]) < 0.15) { r1 = i; break; } }
+    for (let i = SIZE - 1; i >= SIZE / 2; i--) { if (Math.abs(buf[i]) < 0.15) { r2 = i; break; } }
+    buf = buf.slice(r1, r2); SIZE = buf.length;
+    if (SIZE < 2) return -1;
+    const c = new Float32Array(SIZE);
+    for (let i = 0; i < SIZE; i++) for (let j = 0; j < SIZE - i; j++) c[i] += buf[j] * buf[j+i];
+    let d = 0; while (c[d] > c[d+1]) d++;
+    let maxval = -1, maxpos = -1;
+    for (let i = d; i < SIZE; i++) { if (c[i] > maxval) { maxval = c[i]; maxpos = i; } }
+    if (maxpos < 1) return -1;
+    let T0 = maxpos;
+    const x1 = c[T0-1], x2 = c[T0], x3 = c[T0+1];
+    const a = (x1+x3-2*x2)/2, b2 = (x3-x1)/2;
+    if (a) T0 -= b2/(2*a);
+    return sr/T0;
+}
+
+// ── Metronome (Web Audio lookahead — zero drift) ──────────────
+let metroOn = false, bpm = 120, beatsPerBar = 4, currentBeat = 0;
+let nextBeatTime = 0, schedTimer = null, tapTimes = [];
+let accentOn = true;
+let soundDown = 'kick', soundBack = 'snare', soundStd = 'click';
+let subdivision = 'quarter'; // quarter | eighth | sixteenth | triplet | gallop | revgallop | shuffle
+
+// Each subdivision pattern defines sub-ticks WITHIN a single beat.
+// "pos" = fraction of the beat where the tick fires (0 = on the beat).
+// "weight" = relative volume/accent strength of that sub-tick (1 = strongest).
+const SUBDIVISIONS = {
+    quarter:   { label: 'Quarter Notes',      ticks: [{pos:0, weight:1}] },
+    eighth:    { label: '8th Notes',          ticks: [{pos:0, weight:1}, {pos:0.5, weight:0.55}] },
+    sixteenth: { label: '16th Notes',         ticks: [{pos:0, weight:1}, {pos:0.25, weight:0.45}, {pos:0.5, weight:0.6}, {pos:0.75, weight:0.45}] },
+    triplet:   { label: 'Triplets',           ticks: [{pos:0, weight:1}, {pos:0.333, weight:0.5}, {pos:0.667, weight:0.5}] },
+    gallop:    { label: 'Gallop (long-short-short)',    ticks: [{pos:0, weight:1}, {pos:0.5, weight:0.55}, {pos:0.75, weight:0.55}] },
+    revgallop: { label: 'Reverse Gallop (short-short-long)', ticks: [{pos:0, weight:0.55}, {pos:0.25, weight:0.55}, {pos:0.5, weight:1}] },
+    shuffle:   { label: 'Shuffle / Swing',     ticks: [{pos:0, weight:1}, {pos:0.667, weight:0.5}] }
+};
+
+function updateSoundSlot() {
+    soundDown = document.getElementById('soundDown').value;
+    soundBack = document.getElementById('soundBack').value;
+    soundStd  = document.getElementById('soundStd').value;
+}
+
+function setSubdivision() {
+    if (currentTier !== 'pro') {
+        document.getElementById('subdivSelect').value = 'quarter';
+        openLock();
+        return;
+    }
+    subdivision = document.getElementById('subdivSelect').value;
+    buildBeatDots();
+}
+
+function toggleAccent() {
+    accentOn = !accentOn;
+    const btn = document.getElementById('accentToggle');
+    btn.textContent = accentOn ? 'Accents: ON' : 'Accents: OFF';
+    btn.className = accentOn ? 'accent-tog on' : 'accent-tog';
+    buildBeatDots();
+}
+
+// Sound synth library
+function synthClick(c,t,v)  { const o=c.createOscillator(),g=c.createGain(); o.type='triangle'; o.frequency.setValueAtTime(1200,t); o.frequency.exponentialRampToValueAtTime(800,t+0.015); g.gain.setValueAtTime(v*1.3,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.04); o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+0.05); }
+function synthKick(c,t,v)   { const o=c.createOscillator(),g=c.createGain(); o.type='sine'; o.frequency.setValueAtTime(150,t); o.frequency.exponentialRampToValueAtTime(45,t+0.08); g.gain.setValueAtTime(v*1.4,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.18); o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+0.2); }
+function synthSnare(c,t,v)  { const bs=c.sampleRate*0.15,buf=c.createBuffer(1,bs,c.sampleRate),d=buf.getChannelData(0); for(let i=0;i<bs;i++) d[i]=Math.random()*2-1; const n=c.createBufferSource(); n.buffer=buf; const f=c.createBiquadFilter(); f.type='bandpass'; f.frequency.value=3000; f.Q.value=0.8; const ng=c.createGain(); ng.gain.setValueAtTime(v*0.8,t); ng.gain.exponentialRampToValueAtTime(0.001,t+0.12); n.connect(f); f.connect(ng); ng.connect(c.destination); n.start(t); n.stop(t+0.15); const o=c.createOscillator(),g=c.createGain(); o.type='triangle'; o.frequency.setValueAtTime(220,t); o.frequency.exponentialRampToValueAtTime(120,t+0.06); g.gain.setValueAtTime(v*0.6,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.08); o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+0.1); }
+function synthWood(c,t,v)   { const o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter(); f.type='bandpass'; f.frequency.value=1800; f.Q.value=8; o.type='square'; o.frequency.setValueAtTime(600,t); o.frequency.exponentialRampToValueAtTime(400,t+0.03); g.gain.setValueAtTime(v*0.9,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.06); o.connect(f); f.connect(g); g.connect(c.destination); o.start(t); o.stop(t+0.08); }
+function synthCowbell(c,t,v){ [562,845].forEach(fr=>{ const o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter(); f.type='bandpass'; f.frequency.value=fr; f.Q.value=3; o.type='square'; o.frequency.setValueAtTime(fr,t); g.gain.setValueAtTime(v*0.5,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.38); o.connect(f); f.connect(g); g.connect(c.destination); o.start(t); o.stop(t+0.4); }); }
+function synthRimshot(c,t,v){ const bs=c.sampleRate*0.04,buf=c.createBuffer(1,bs,c.sampleRate),d=buf.getChannelData(0); for(let i=0;i<bs;i++) d[i]=Math.random()*2-1; const n=c.createBufferSource(); n.buffer=buf; const f=c.createBiquadFilter(); f.type='highpass'; f.frequency.value=5000; const g=c.createGain(); g.gain.setValueAtTime(v*1.2,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.04); n.connect(f); f.connect(g); g.connect(c.destination); n.start(t); n.stop(t+0.05); }
+function synthHihat(c,t,v)  { const bs=c.sampleRate*0.1,buf=c.createBuffer(1,bs,c.sampleRate),d=buf.getChannelData(0); for(let i=0;i<bs;i++) d[i]=Math.random()*2-1; const n=c.createBufferSource(); n.buffer=buf; const f=c.createBiquadFilter(); f.type='highpass'; f.frequency.value=8000; const g=c.createGain(); g.gain.setValueAtTime(v*0.6,t); g.gain.exponentialRampToValueAtTime(0.001,t+0.09); n.connect(f); f.connect(g); g.connect(c.destination); n.start(t); n.stop(t+0.1); }
+
+function playSound(name,time,vol) {
+    const c = getCtx();
+    switch(name) {
+        case 'kick':    synthKick(c,time,vol);    break;
+        case 'snare':   synthSnare(c,time,vol);   break;
+        case 'wood':    synthWood(c,time,vol);     break;
+        case 'cowbell': synthCowbell(c,time,vol);  break;
+        case 'rimshot': synthRimshot(c,time,vol);  break;
+        case 'hihat':   synthHihat(c,time,vol);    break;
+        default:        synthClick(c,time,vol);    break;
+    }
+}
+
+function previewSound(name) { resumeCtx().then(() => playSound(name, getCtx().currentTime + 0.01, 0.7)); }
+
+function getBeatSound(idx) {
+    if (!accentOn) return { sound: currentTier === 'pro' ? soundStd : 'click', vol: 1.1 };
+    if (idx === 0) return { sound: currentTier === 'pro' ? soundDown : 'click', vol: 1.5 };
+    if ((idx === 1 || idx === 3) && beatsPerBar >= 4) return { sound: currentTier === 'pro' ? soundBack : 'click', vol: 1.1 };
+    return { sound: currentTier === 'pro' ? soundStd : 'click', vol: 0.85 };
+}
+
+function buildBeatDots() {
+    const el = document.getElementById('beatDots'); el.innerHTML = '';
+    const ticks = SUBDIVISIONS[subdivision].ticks;
+    for (let i = 0; i < beatsPerBar; i++) {
+        const beatGroup = document.createElement('div');
+        beatGroup.className = 'beat-group';
+        ticks.forEach((tk, ti) => {
+            const d = document.createElement('div');
+            const isMainBeat = (ti === 0);
+            if (!accentOn)                                          d.className = 'beat-dot sub-dot';
+            else if (i === 0 && isMainBeat)                         d.className = 'beat-dot accent-dot';
+            else if ((i===1||i===3) && beatsPerBar>=4 && isMainBeat) d.className = 'beat-dot back-dot';
+            else if (isMainBeat)                                    d.className = 'beat-dot';
+            else                                                    d.className = 'beat-dot sub-dot';
+            d.dataset.beat = i; d.dataset.tick = ti;
+            beatGroup.appendChild(d);
+        });
+        el.appendChild(beatGroup);
+    }
+    const panel = document.getElementById('soundPanel');
+    const lock  = document.getElementById('soundLock');
+    if (panel && lock) {
+        panel.style.display = currentTier === 'pro' ? 'block' : 'none';
+        lock.style.display  = currentTier === 'pro' ? 'none'  : 'block';
+    }
+    const subdivLock = document.getElementById('subdivLockNotice');
+    if (subdivLock) subdivLock.style.display = currentTier === 'pro' ? 'none' : 'block';
+}
+
+function setTimeSig() {
+    beatsPerBar = parseInt(document.getElementById('timeSig').value);
+    currentBeat = 0; buildBeatDots();
+}
+
+function flashBeat(beatIdx, tickIdx) {
+    if (!metroOn) return; // ignore stale callbacks fired after stop
+    const dot = document.querySelector(`.beat-dot[data-beat="${beatIdx}"][data-tick="${tickIdx}"]`);
+    if (!dot) return;
+    document.querySelectorAll('.beat-dot.active').forEach(d => d.classList.remove('active'));
+    dot.classList.add('active');
+}
+
+function scheduler() {
+    const c = getCtx();
+    const beatDur = 60.0 / bpm;
+    const ticks = SUBDIVISIONS[subdivision].ticks;
+
+    while (nextBeatTime < c.currentTime + 0.1) {
+        const { sound, vol: beatVol } = getBeatSound(currentBeat);
+        const useSubdivision = currentTier === 'pro';
+
+        if (!useSubdivision || ticks.length === 1) {
+            // Simple quarter-note click (free tier or quarter selected)
+            playSound(sound, nextBeatTime, beatVol);
+            const delay = Math.max(0, (nextBeatTime - c.currentTime) * 1000);
+            const beat = currentBeat;
+            setTimeout(() => flashBeat(beat, 0), delay);
+        } else {
+            // Play each sub-tick within this beat at its own timing/weight
+            ticks.forEach((tk, ti) => {
+                const tickTime = nextBeatTime + (tk.pos * beatDur);
+                const tickVol = ti === 0 ? beatVol : beatVol * tk.weight;
+                const tickSound = ti === 0 ? sound : (currentTier === 'pro' ? soundStd : 'click');
+                playSound(tickSound, tickTime, tickVol);
+                const delay = Math.max(0, (tickTime - c.currentTime) * 1000);
+                const beat = currentBeat, tickI = ti;
+                setTimeout(() => flashBeat(beat, tickI), delay);
+            });
+        }
+
+        currentBeat = (currentBeat + 1) % beatsPerBar;
+        nextBeatTime += beatDur;
+    }
+    schedTimer = setTimeout(scheduler, 25);
+}
+
+async function toggleMetro() {
+    await resumeCtx();
+    metroOn ? stopMetro() : startMetro();
+}
+
+function startMetro() {
+    metroOn = true; currentBeat = 0;
+    nextBeatTime = getCtx().currentTime + 0.05;
+    const btn = document.getElementById('metroStartBtn');
+    btn.textContent = 'STOP'; btn.classList.add('running');
+    document.getElementById('metroLiveDot').classList.add('on');
+    scheduler();
+}
+
+function stopMetro(preservePractice = false) {
+    if (!preservePractice && typeof practiceRunning !== 'undefined' && practiceRunning) resetPractice();
+    metroOn = false;
+    if (schedTimer) { clearTimeout(schedTimer); schedTimer = null; }
+    const btn = document.getElementById('metroStartBtn');
+    btn.textContent = 'START'; btn.classList.remove('running');
+    document.getElementById('metroLiveDot').classList.remove('on');
+    document.querySelectorAll('#beatDots .beat-dot.active').forEach(d => d.classList.remove('active'));
+}
+
+function nudgeBpm(delta) {
+    bpm = Math.max(40, Math.min(250, bpm + delta));
+    document.getElementById('bpmInput').value = bpm;
+    if (metroOn) { stopMetro(true); startMetro(); }
+}
+
+function onBpmInput() {
+    const v = parseInt(document.getElementById('bpmInput').value);
+    if (!isNaN(v) && v >= 40 && v <= 250) { bpm = v; if (metroOn) { stopMetro(true); startMetro(); } }
+}
+
+function tap() {
+    const now = Date.now(); tapTimes.push(now);
+    if (tapTimes.length > 5) tapTimes.shift();
+    if (tapTimes.length > 1) {
+        let sum = 0;
+        for (let i = 1; i < tapTimes.length; i++) sum += tapTimes[i] - tapTimes[i-1];
+        bpm = Math.max(40, Math.min(250, Math.round(60000 / (sum / (tapTimes.length - 1)))));
+        document.getElementById('bpmInput').value = bpm;
+        if (metroOn) { stopMetro(true); startMetro(); }
+    }
+}
+
+// ── Timed practice sessions ──────────────────────────────────
+let practiceRunning = false, practicePaused = false, practicePhase = 'play';
+let practiceRemaining = 300, practiceRound = 1, practiceTotalRounds = 1;
+let practicePlaySeconds = 300, practiceRestSeconds = 0;
+let practiceTimerId = null, practiceDeadline = 0;
+function practiceNumber(id, fallback, min, max) {
+    const input = document.getElementById(id);
+    const value = Number(input.value);
+    const result = Number.isFinite(value) ? Math.max(min,Math.min(max,Math.round(value))) : fallback;
+    input.value = result;
+    return result;
+}
+function paintPractice() {
+    const m = Math.floor(Math.max(0,practiceRemaining)/60);
+    const sec = Math.max(0,practiceRemaining)%60;
+    document.getElementById('practiceClock').textContent = String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0');
+    const phase = practicePhase === 'rest' ? 'REST' : 'PLAY';
+    document.getElementById('practiceStatus').textContent = !practiceRunning ? 'READY' : (practicePaused ? 'PAUSED' : phase) + ' · ROUND '+practiceRound+'/'+practiceTotalRounds;
+    document.getElementById('practiceToggle').textContent = !practiceRunning ? 'START SESSION' : practicePaused ? 'RESUME' : 'PAUSE';
+}
+function clearPracticeTicker() { if (practiceTimerId !== null) clearInterval(practiceTimerId); practiceTimerId = null; }
+function resetPractice() {
+    clearPracticeTicker(); practiceRunning=false; practicePaused=false; practicePhase='play'; practiceRound=1;
+    if (metroOn) stopMetro(true);
+    practiceRemaining=practiceNumber('practicePlay',300,5,7200);
+    practiceTotalRounds= currentTier === 'pro' ? practiceNumber('practiceRounds',3,1,99) : 1;
+    paintPractice();
+}
+function practiceNextPhase() {
+    if (practicePhase==='play') {
+        stopMetro(true);
+        if (practiceRound>=practiceTotalRounds) { resetPractice(); document.getElementById('practiceStatus').textContent='SESSION COMPLETE'; return; }
+        if (practiceRestSeconds>0) { practicePhase='rest'; practiceRemaining=practiceRestSeconds; }
+        else { practiceRound++; practicePhase='play'; practiceRemaining=practicePlaySeconds; startMetro(); }
+    } else { practiceRound++; practicePhase='play'; practiceRemaining=practicePlaySeconds; startMetro(); }
+    practiceDeadline=performance.now()+practiceRemaining*1000; paintPractice();
+}
+function tickPractice() {
+    if (!practiceRunning || practicePaused) return;
+    let left=Math.ceil((practiceDeadline-performance.now())/1000);
+    if (left<=0) { practiceNextPhase(); return; }
+    practiceRemaining=left; paintPractice();
+}
+async function togglePractice() {
+    if (practiceRunning) {
+        if (practicePaused) { await resumeCtx(); practicePaused=false; practiceDeadline=performance.now()+practiceRemaining*1000; if (practicePhase==='play') startMetro(); }
+        else { practiceRemaining=Math.max(1,Math.ceil((practiceDeadline-performance.now())/1000)); practicePaused=true; if (metroOn) stopMetro(true); }
+        paintPractice(); return;
+    }
+    practicePlaySeconds=practiceNumber('practicePlay',300,5,7200);
+    practiceRestSeconds=currentTier==='pro' ? practiceNumber('practiceRest',30,0,600) : 0;
+    practiceTotalRounds=currentTier==='pro' ? practiceNumber('practiceRounds',3,1,99) : 1;
+    practiceRemaining=practicePlaySeconds; practiceRound=1; practicePhase='play';
+    try { await resumeCtx(); } catch(e) { document.getElementById('practiceStatus').textContent='AUDIO UNAVAILABLE'; return; }
+    if (metroOn) stopMetro(true);
+    practiceRunning=true; practicePaused=false; practiceDeadline=performance.now()+practiceRemaining*1000;
+    startMetro(); clearPracticeTicker(); practiceTimerId=setInterval(tickPractice,100); paintPractice();
+}
+document.getElementById('practicePlay').addEventListener('change',()=>{if(!practiceRunning)resetPractice();});
+paintPractice();
+</script>
+</body>
+</html>
